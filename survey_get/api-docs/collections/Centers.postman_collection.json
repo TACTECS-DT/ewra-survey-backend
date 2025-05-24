@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "1e68d5e1-e187-426e-a32c-25400161723b",
+		"name": "Centers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-1e68d5e1-e187-426e-a32c-25400161723b?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/center/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"center",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/center/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"center",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:32:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "38611340347b42b6ba5160714b2d6a37"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=26.08929999769316;desc=\"Elapsed time\", SQLPanel_sql_time;dur=5.491200001415564;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "189"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:32:00 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 3,\n            \"name\": \"center 1\",\n            \"governorate\": {\n                \"id\": 14,\n                \"name\": \"new name\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"new name\",\n            \"governorate\": {\n                \"id\": 14,\n                \"name\": \"new name\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/center/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"center",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/center/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"center",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:32:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "fa9b2ff5697848d697ec60ffe013820f"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=19.258699998317752;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.003700003522681;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:32:08 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"new name\",\n    \"governorate\": {\n        \"id\": 14,\n        \"name\": \"new name\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new name ",
+							"type": "text"
+						},
+						{
+							"key": "governorate",
+							"value": "14",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/center/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"center",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view patch",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name ",
+									"value": "new name ",
+									"type": "text"
+								},
+								{
+									"key": "governorate",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/center/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"center",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:32:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "dc4874574311441da808aeecf9af48a4"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=23.25589999963995;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.178999999567168;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:32:27 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"new name\",\n    \"governorate\": {\n        \"id\": 14,\n        \"name\": \"new name\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new record 4",
+							"type": "text"
+						},
+						{
+							"key": "governorate",
+							"value": "14",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/center/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"center",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new record 4",
+									"type": "text"
+								},
+								{
+									"key": "governorate",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/center/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"center",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:32:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "6e35be458f3d40828acd80a66a66dd1f"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=50.529500000266125;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.776900001161266;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:32:36 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"new record 4\",\n    \"governorate\": {\n        \"id\": 14,\n        \"name\": \"new name\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/center/delete/?ids=1,2,3",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"center",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "1,2,3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

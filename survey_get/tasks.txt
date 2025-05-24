@@ -1,0 +1,7 @@
+
+- generate  new SECRET_KEY
+
+
+    {% load form_extras %}
+
+      {{ form.center|with_data_original }}

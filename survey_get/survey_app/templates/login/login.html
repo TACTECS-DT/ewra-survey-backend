@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% include 'utils/header_files.html' %}
+
+    <title> تسجيل الدخول</title>
+  </head>
+  <body>
+    <section class="material-half-bg">
+      <div class="cover"></div>
+    </section>
+    <section class="login-content">
+      <div class="logo">
+        <h1> الاسبيان </h1>
+      </div>
+      <div class="login-box">
+        <form class="login-form" method="post">
+          {% csrf_token %}
+          <h3 class="login-head">
+            <i class="fa fa-lg fa-fw fa-user"></i> تسجيل الدخول
+          </h3>
+          <div class="form-group">
+            <label class="control-label">اسم المستخدم     </label>
+
+            <input
+              class="form-control"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+              autofocus
+            />
+          </div>
+
+        
+
+          <div class="form-group">
+            <label class="control-label">كلمة المرور</label>
+            <input
+              class="form-control"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <!-- <div class="form-group">
+            <div class="utility">
+              <p class="semibold-text mb-2">
+                <a href="/password_reset/" data-toggle="flip" >
+                  هل نسيت كلمة السر ؟ </a
+                >
+              </p>
+            </div>
+          </div> -->
+          <div class="form-group btn-container">
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa fa-sign-in fa-lg fa-fw"></i>تسجيل الدخول
+            </button>
+
+
+          </div>
+        
+        </form>
+        
+      </div>
+
+      {% if messages %}
+      <br/>
+      <br/>
+      <div class="form-group">
+
+      <div class="alert alert-danger">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </div>   </div>
+     
+      {% endif %}
+
+    </section>
+
+    {% include 'utils/footer_files.html' %}
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" direction="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> لا يمكن الحذف</title>
+    <style>
+        body {
+            direction: rtl;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #dc3545;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> لا يمكن  الحذف</h1>
+        <p>لا يمكن حذف السجل المحدد لأنه يتم الرجوع إليه بواسطة سجلات أخرى</p>
+
+        <p>لحذف هذا السجل، يرجى إزالة أو تحديث السجلات ذات الصلة أولاً.</p>
+        <p><a class="btn " href="javascript:window.history.back();">الرجوع</a></p>
+
+        <a href="{% url 'home' %}" class="btn" style="background-color: #6c757d;">الصفحة الرئيسية     </a>
+    </div>
+</body>
+</html>

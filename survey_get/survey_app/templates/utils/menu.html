@@ -1,0 +1,116 @@
+
+<ul class="app-menu">
+
+    <li><a class="app-menu__item " href="/survey/">
+      <i class="app-menu__icon fa fa-clipboard"></i>
+      <span class="app-menu__label"> الاستبيان</span></a></li>
+ 
+      
+  
+  {% if is_role_admin_funfrom_context %}  
+    <li class="treeview" id="ext_m">
+      <a class="app-menu__item" href="#" data-toggle="treeview">
+    
+        <i class="app-menu__icon fa fa-gear"></i>
+        <span class="app-menu__label">الاعدادات</span>
+        <i class="treeview-indicator fa fa-angle-right"></i></a>
+  
+      <ul class="treeview-menu">
+  
+        <li><a class="treeview-item" href="/governorates/"><i class="app-menu__icon fa fa-map" aria-hidden="true"></i></i> المحافظات </a></li>
+  
+
+        
+        <li><a class="treeview-item" href="/centers/"><i class="app-menu__icon icon fa fa-table"></i> المنطقة او المركز </a></li>
+  
+  
+        <li><a class="treeview-item" href="/service-providers/"><i class="app-menu__icon icon fa fa-circle-o"></i>  مقدم الخدمة </a></li>
+        
+        <li><a class="treeview-item" href="/affiliates/"><i class="app-menu__icon icon fa  fa-building"></i> الجهة التابعة </a></li>
+  
+        
+        <li><a class="treeview-item" href="/branches/"><i class="app-menu__icon icon fa  fa-sitemap"></i>  الفروع</a></li>
+  
+    
+        
+        <li><a class="treeview-item" href="/main-activity/"><i class="app-menu__icon icon fa fa-paste"></i>  النشاط الرئيسى / داعم </a></li>
+  
+  
+        
+        <li><a class="treeview-item" href="/activity-types/"><i class="app-menu__icon icon fa  fa-copy"></i>   نوع النشاط  </a></li>
+  
+      
+        <li><a class="treeview-item" href="/activity-items/"><i class="app-menu__icon icon fa fa-compass"></i>  اسم الموقع </a></li>
+  
+        
+        <li><a class="treeview-item" href="/main-survey-sections/"><i class="app-menu__icon icon fa fa-list-ul"></i>  قوائم الاستبيان الرئيسية  </a></li>
+  
+  
+  
+  
+  
+        <li><a class="treeview-item" href="/sub-survey-sections/"><i class="app-menu__icon icon fa fa-bullseye"></i>   قوائم الاستبيان الفرعية / بند المراجعة   </a></li>
+  
+        <li><a class="treeview-item" href="/question-bank/"><i class="app-menu__icon icon fa fa-question"></i>  بنك الأسئلة   </a></li>
+
+
+        <li><a class="treeview-item" href="/users/"><i class="app-menu__icon icon fa fa-users"></i>  المستخدمين  </a></li>
+
+        <li><a class="treeview-item" href="/permissions/"><i class="app-menu__icon icon fa fa-users"></i>  الصلاحيات  </a></li>
+
+  
+  
+      </ul>
+    </li>
+
+
+      {% if  request.user.is_authenticated %}
+  
+   <li><a class="app-menu__item " href="/logout/">
+      <i class="app-menu__icon fa fa-sign-out"></i>
+      <span class="app-menu__label"> تسجيل الخروج</span></a>
+    </li>
+      {% endif %}
+  
+    {% if not request.user.is_authenticated %}
+  
+  <li><a class="app-menu__item " href="/login/">
+      <i class="app-menu__icon fa fa-sign-in"></i>
+      <span class="app-menu__label">  دخول</span></a>
+    </li>
+  
+      {% endif %}
+  
+      {% endif %}
+  
+      <script>
+        // Get the current URL path
+        var currentPath = window.location.pathname;
+      
+        // Get all the <a> tags inside the menu
+        var menuItems = document.querySelectorAll('.app-menu__item, .treeview-item');
+        
+        // Loop through each <a> tag
+        menuItems.forEach(function(item) {
+          if (currentPath.startsWith(item.getAttribute('href'))) {
+            item.classList.add('active');
+          }
+        });
+      </script>
+      
+      
+  
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          let currentUrl = window.location.pathname;
+            let confMenu = document.getElementById('ext_m');
+            let nav_links = ["/centers/","/users/","/permissions/",'/governorates/','/service-providers/','/affiliates/','/branches/','/main-activity/','/activity-types/','/activity-items/',,'/main-survey-sections/','/sub-survey-sections/','/question-bank/']
+        
+    if (nav_links.some(link => currentUrl.startsWith(link))) {
+      confMenu.classList.add('is-expanded');
+  }
+        });
+    </script>
+  
+  </ul>
+  

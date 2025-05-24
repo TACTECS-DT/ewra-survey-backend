@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    {% load static %} 
+    
+    <title>400</title>
+    <meta name="description" content="New Sheet data">
+
+    {% include 'utils/header_files.html' %}
+</head>
+<body class="app sidebar-mini rtl">
+
+    {% include 'utils/navbar.html' %}
+    {% include 'utils/sidebar.html' %}
+    
+
+    <main class="app-content">
+        {% include 'utils/sub_header.html' %}
+      <!--start content  -->
+      <div class="page-error tile">
+        <h1><i class="fa fa-exclamation-circle"></i> خطأ 400: خطأ في الصياغة.</h1>
+        <p>لم يتمكن الخادم من فهم الطلب بسبب خطأ في الصياغة.</p>
+        <p><a class="btn btn-primary" href="javascript:window.history.back();">العودة</a></p>
+      </div>
+      
+         <!--end content  -->
+      </main>
+
+    
+    {% include 'utils/footer_files.html' %}
+  </body>
+</html>

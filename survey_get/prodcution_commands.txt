@@ -1,0 +1,396 @@
+
+cd /home/survey/django-survey/survey_get
+
+
+sudo apt update
+sudo apt install openssh-server
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+
+sudo ufw allow ssh
+sudo ufw enable   
+sudo ufw status
+sudo ufw allow 8000
+
+will connect on it with windows cmd or power shell to use mouse 
+connect with :
+ip a 
+ssh survey@192.168.1.163
+or
+ssh <username>@<IP>
+////////////
+
+sudo apt update
+sudo apt install postgresql postgresql-contrib libpq-dev -y
+
+
+
+sudo -u postgres psql
+
+
+CREATE DATABASE django_survey_db;
+CREATE USER admin WITH PASSWORD 'admin';
+ALTER ROLE admin SET client_encoding TO 'UTF8';
+ALTER ROLE admin SET default_transaction_isolation TO 'read committed';
+ALTER ROLE admin SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE django_survey_db TO admin;
+
+
+/////////folder //////
+will be same as githup so clone in main root 
+
+cd 
+////////venv 
+sudo apt install python3 python3-venv python3-pip
+
+
+
+////////// clone //////
+https://github.com/settings/tokens
+Generate a classic token with repo scope.
+or use this :
+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
+
+
+
+git clone -b demo-production https://github.com/omarrady1899/django-survey.git
+
+When prompted:
+
+    Username = your GitHub username
+
+    Password = the PAT (Personal Access Token), not your GitHub password
+
+
+//////hwo to fitch new updates  from githup ////////
+cd 
+cd django-survey
+git status
+git pull origin demo-production
+
+---- override your local changes, just run the following commands:
+
+
+# Discard local changes to the file
+git checkout -- <file that change >
+ex:
+git checkout -- survey_get/survey_app/all_views/attchments.py
+git checkout -- survey_get/survey_app/all_views/__pycache__/attchments.cpython-311.pyc
+ 
+
+# Now pull the latest changes
+git pull origin demo-production
+
+
+
+
+//////after clone to main root 
+ cd django-survey
+  cd survey_get
+  python3 -m venv venv
+source venv/bin/activate
+pip install -r  requirements.txt
+
+//////////// .env /////
+nano .env
+change user and password  to make it same with database user and password 
+
+/////////migrations ////////
+insure : source venv/bin/activate 
+
+python manage.py makemigrations survey_app
+python manage.py migrate
+
+//////
+python manage.py createsuperuser
+admin
+admin
+ password will change later to (surveyadmin1899)
+python manage.py collectstatic
+python manage.py runserver 0.0.0.0:8000
+
+sudo ufw allow 8000
+
+
+now app avilable in :
+http://<your-ubuntu-ip>:8000
+or 
+http://192.168.1.163:8000
+
+
+
+///// make media files in same dire for static file if not exist ////
+cd /home/survey/django-survey/survey_get
+
+mkdir media
+
+
+
+
+
+
+
+
+
+////////////////////Nginx + Media Setup for Django ////////////////
+https://www.youtube.com/watch?v=RsrJzKPigc4
+https://github.com/TheProtonGuy/server-configs
+
+deactivate
+sudo apt update
+sudo apt install nginx
+
+cd /home/survey/django-survey/survey_get
+source venv/bin/activate
+pip install gunicorn
+
+
+sudo nano /etc/nginx/sites-available/survey_get
+
+ server {
+   listen 80;
+   server_name 192.168.1.163;
+
+   access_log /var/log/nginx/survey.log;
+
+   location /static/ {
+       alias  /home/survey/django-survey/survey_get/staticfiles/;
+   }
+
+ location /media/ {
+       alias  /home/survey/django-survey/survey_get/media/;
+   }
+
+   location / {
+       proxy_pass http://127.0.0.1:8000;
+       proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+   }
+}
+
+
+
+///////
+
+    cd /etc/nginx/sites-enabled
+    sudo ln -s ../sites-available/survey_get
+
+
+
+
+  sudo nano   /etc/nginx/nginx.conf
+    uncomment this line:
+        # server_names_hash_bucket_size 64;
+
+Restart nginx:
+
+    sudo service nginx restart
+
+sudo nginx -t
+sudo ufw allow 80
+
+sudo apt-get install ufw
+
+sudo ufw allow 8000
+
+Restart nginx:
+    sudo systemctl reload nginx
+
+    sudo service nginx restart 
+
+
+
+
+cd /home/survey/django-survey/survey_get
+gunicorn --bind 0.0.0.0:8000 core.wsgi
+
+
+now :
+http://192.168.1.163/
+and 
+http://192.168.1.163:8000
+
+work 
+
+and downlaod content is avalble on http://192.168.1.163/ only 
+
+
+
+
+
+
+sudo nano /etc/systemd/system/gunicorn.service
+
+
+[Unit]
+Description=gunicorn daemon for Django app
+After=network.target
+
+[Service]
+User=survey
+Group=www-data
+WorkingDirectory=/home/survey/django-survey/survey_get
+ExecStart=/home/survey/django-survey/survey_get/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 core.wsgi
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+////////
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl start gunicorn
+sudo systemctl restart gunicorn
+sudo lsof -i :8000
+sudo systemctl status gunicorn
+
+
+//////////now :
+http://192.168.1.163/
+and 
+http://192.168.1.163:8000
+
+
+//////////// permisssion fix ///////////
+
+
+# View access logs (requests being made)
+sudo tail -f /var/log/nginx/survey.log
+
+# Or check default error log
+sudo tail -f /var/log/nginx/error.log
+
+Run this to see permissions recursively for the staticfiles directory:
+
+ls -ld /home/survey/django-survey/survey_get/staticfiles
+ls -ld /home/survey/django-survey/survey_get/media
+
+
+////edit permsssions
+
+
+sudo chgrp -R www-data /home/survey/django-survey/survey_get/staticfiles
+sudo chgrp -R www-data /home/survey/django-survey/survey_get/media
+
+
+
+sudo find /home/survey/django-survey/survey_get/staticfiles -type d -exec chmod 750 {} \;
+sudo find /home/survey/django-survey/survey_get/staticfiles -type f -exec chmod 640 {} \;
+sudo find /home/survey/django-survey/survey_get/media -type d -exec chmod 750 {} \;
+sudo find /home/survey/django-survey/survey_get/media -type f -exec chmod 640 {} \;
+
+
+
+sudo chmod o+x /home
+sudo chmod o+x /home/survey
+sudo chmod o+x /home/survey/django-survey
+sudo chmod o+x /home/survey/django-survey/survey_get
+
+
+sudo find /home/survey/django-survey/survey_get/staticfiles -type d -exec chmod 755 {} \;
+sudo find /home/survey/django-survey/survey_get/staticfiles -type f -exec chmod 644 {} \;
+
+sudo find /home/survey/django-survey/survey_get/media -type d -exec chmod 755 {} \;
+sudo find /home/survey/django-survey/survey_get/media -type f -exec chmod 644 {} \;
+
+
+
+
+sudo systemctl restart gunicorn
+sudo systemctl reload nginx
+
+sudo service nginx restart 
+
+
+
+
+
+
+/////////// APP restart ////////////////
+sudo systemctl restart gunicorn
+
+
+You need to restart Gunicorn (not Nginx) after pulling new code because:
+🔁 Gunicorn runs your Django application code
+
+    Gunicorn loads your Django project when it starts.
+
+    If you pull new code from GitHub (Python files, templates, etc.), Gunicorn is still running the old version in memory.
+
+    Restarting Gunicorn tells it to:
+
+        Reload the Django project
+
+        Use the updated code
+
+🌐 Nginx is just a reverse proxy
+
+    Nginx does not run your Django code — it just forwards web requests to Gunicorn.
+
+    It doesn't care if your Python files change.
+
+    You only restart or reload Nginx if you:
+
+        Change the Nginx config
+
+        Add or remove domains/ports
+
+        Change SSL, redirects, static file settings, etc.
+
+🧠 Analogy
+
+Think of it like this:
+
+    Gunicorn = the engine running your Django app
+
+    Nginx = the traffic cop directing cars to the engine
+
+If you change the engine (code), restart Gunicorn.
+If you change the traffic rules (Nginx config), reload Nginx.
+
+Would you like to check the status of Gunicorn now to be sure it's running your updated code?
+
+
+///////logs //////////
+
+/var/log/nginx/
+
+and app log 
+in logs folder 
+
+
+
+
+/////////////////impoert the machine //////
+
+make sure to connect with eathernet not wifi 
+get the 
+ip a
+change ip adress in 
+sudo nano /etc/nginx/sites-available/survey_get 
+
+
+sudo rm /etc/nginx/sites-enabled/survey_get
+sudo ln -s /etc/nginx/sites-available/survey_get /etc/nginx/sites-enabled/
+sudo nginx -t
+
+sudo service nginx restart 
+
+/////// incase of wifi network ///////
+
+Option 1: Use an External Virtual Switch for Wi-Fi
+
+    Open Hyper-V Manager
+
+    Go to Virtual Switch Manager
+
+    Go to the selected External Virtual Switch
+
+    Select  Wi-Fi network adapter

@@ -1,0 +1,20 @@
+API  points Test checklist :
+
+     Authentication tests (normal and hacking attempts)
+
+     Validation tests (good and bad data)
+
+     Permission tests (authorized/unauthorized/forbidden)
+
+     Rate limit & concurrency tests
+
+     Injection / Security abuse tests
+
+     Performance check
+
+     API contract check (structure of response)
+
+     Negative scenarios
+
+     Data integrity tests
+

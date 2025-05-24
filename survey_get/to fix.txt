@@ -1,0 +1,1 @@
+- race condition issue : race condition issue where one user edits a survey or its questions while another user has an outdated version open. When the outdated form is submitted, it overwrites the latest changes instead of merging them. 

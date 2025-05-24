@@ -1,0 +1,45 @@
+<div class="app-title">
+    <div class="container-fluid">
+    <div class="row">
+      {% load static %} 
+
+
+      
+
+      <style>
+        .sub_header_images{
+
+            max-width: 50%; 
+            height: auto; 
+            display: block;
+            margin: 0; 
+            float: left; 
+ 
+        }
+
+
+
+
+
+        
+      </style> 
+      <div class="col-6 mt-2 sub_nav_header">
+
+        <h1>{{dynamic_model_name|default:"العنوان" }}</h1>
+      
+      </div>
+
+      <div class="col-6">
+<img src="{% static 'images/additional_logos-dark.png' %}" class="sub_header_images" />
+      </div>
+
+
+
+
+      
+
+      
+
+    </div>
+    </div>
+  </div>

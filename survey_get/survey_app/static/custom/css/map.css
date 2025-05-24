@@ -1,0 +1,87 @@
+
+/* Style the map container */
+#map {
+    width: 100%; /* Ensure it spans the full width */
+    height: 500px; /* Set a fixed height (adjust as needed) */
+    position: relative; /* Prevent floating */
+    border: 1px solid #ccc; /* Optional: adds a border */   
+
+    
+    border: 1px solid #ccc; /* Optional: adds a border */
+}
+.tile-body {
+    overflow: hidden; /* Prevents floating issues */
+    position: relative;
+}
+
+/* Marker container to align icon and label */
+.marker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Place name under the icon */
+.marker-label {
+    font-size: 12px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    padding: 4px 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 2px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Glowing effect for markers */
+
+@keyframes glowEffect {
+    0% {
+        filter: drop-shadow(0 0 5px var(--glow-color));
+    
+    }
+    20% {
+        filter: drop-shadow(0 0 10px var(--glow-color));
+       
+    }
+    40% {
+        filter: drop-shadow(0 0 15px var(--glow-color));
+        opacity: 1;
+    }
+    60% {
+        filter: drop-shadow(0 0 10px var(--glow-color));
+       
+    }
+  
+    80% {
+        filter: drop-shadow(0 0 5px var(--glow-color));
+       
+    }
+    100% {
+        filter: drop-shadow(0 0 0px var(--glow-color));
+       
+    }
+}
+
+.glowing-marker {
+    /* --glow-color: attr(data-glow color); */
+    animation: glowEffect 1.5s infinite ease-in-out;
+}
+
+
+/* Use the custom glow color
+.glowing-marker[data-glow="green"] {
+    --glow-color: green;
+}
+.glowing-marker[data-glow="orange"] {
+    --glow-color: orange;
+}
+.glowing-marker[data-glow="yellow"] {
+    --glow-color: yellow;
+}
+.glowing-marker[data-glow="red"] {
+    --glow-color: red;
+} */
+

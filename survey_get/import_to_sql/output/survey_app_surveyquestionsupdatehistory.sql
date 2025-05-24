@@ -1,0 +1,9 @@
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('1', '4', '1', '2025-03-23 00:38:44.754539+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('2', '5', '1', '2025-03-23 00:38:44.766771+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('3', '6', '1', '2025-03-23 00:38:44.779650+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('4', '7', '1', '2025-03-23 18:58:36.694390+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('5', '8', '1', '2025-03-23 18:58:36.706016+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('6', '9', '1', '2025-03-23 18:58:36.717505+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('7', '283', '2', '2025-04-07 10:09:30.573987+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('8', '284', '2', '2025-04-07 10:09:30.609719+00:00');
+INSERT INTO survey_app_surveyquestionsupdatehistory (id, survey_question_id, updated_by_id, updated_at) VALUES ('9', '285', '2', '2025-04-07 10:09:30.624110+00:00');

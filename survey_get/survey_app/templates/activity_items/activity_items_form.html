@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>{{current_record.name}} </title>
+    <meta name="description" content="{{current_record.name}}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+      <!-- start  content here -->
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title"> {{current_record.name}} </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+              <a href="/activity-items/">
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+
+
+          <div class="tile-body">
+            <form method="POST" class="form-horizontal" >
+           
+              {% csrf_token %}
+
+
+
+     
+              <div>
+                <label>{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+            
+            <br/>
+     
+              <div>
+                <label>{{ form.longitude.label }}</label>
+                {{ form.longitude }}
+            </div>
+            
+            <br/>
+     
+              <div>
+                <label>{{ form.latitude.label }}</label>
+                {{ form.latitude }}
+            </div>
+            <br/>
+            
+            <div>
+                <label>{{ form.entity_type.label }}</label>
+                {{ form.entity_type }}
+            </div>
+            
+            <div>
+                <label>{{ form.main_activity.label }}</label>
+                {{ form.main_activity }}
+            </div>
+              
+  
+        
+            
+            <div class="related_field_div mt-4 mb-4">
+              <label> رئيسى / داعم :</label>
+               <p class="related_field id_activity_type_related" id="id_activity_type_related"></p>
+            </div>
+
+
+
+
+            <div>
+                <label>{{ form.activity_type.label }}</label>
+                {{ form.activity_type }}
+            </div>
+        
+            
+            <div>
+                <label>{{ form.affiliate.label }}</label>
+                {{ form.affiliate }}
+            </div>
+        
+      
+
+
+            <div class="related_field_div mt-4 mb-4">
+              <label>  مقدم الخدمة  :</label>
+               <p class="related_field id_service_provider_related" id="id_service_provider_related"></p>
+            </div>
+
+
+          
+        
+            <div>
+                <label>يجب إضافة منطقه او مركز ؟ : </label>
+                <input type="checkbox" id="need_center_related" disabled>
+    
+            </div>
+            <br/>
+            
+        
+      
+            
+            <div>
+                <label>{{ form.center.label }}</label>
+                {{ form.center }}
+            </div>
+        
+            
+            <div>
+                <label>{{ form.branch.label }}</label>
+                {{ form.branch }}
+            </div>
+        
+            <br/>
+
+        
+
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+            <br />
+
+            <button
+              id="deleteButton"
+    
+              class="btn btn-danger delete-btn"
+              data-href="{% url 'activity-items-delete' current_record.id %}"
+               data-record-name="{{ current_record.name }}"
+            >
+            حذف
+            </button>
+
+            </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+
+ 
+    
+<!-- getters -->
+<script src="{% static 'custom/js/getters/main_activity.activity_type.js' %}"></script>
+<script src="{% static 'custom/js/getters/affiliate.service_provider.js' %}"></script>
+<script src="{% static 'custom/js/getters/affiliate.need_center.js' %}"></script>
+ 
+
+
+<!-- domains -->
+<script src="{% static 'custom/js/domains/main_activity_entity_type_domain.js' %}"></script>
+
+
+<!-- invisible requerd  -->
+<script src="{% static 'custom/js/activity_item_inivisible_required.js' %}"></script>
+
+
+  </body>
+</html>

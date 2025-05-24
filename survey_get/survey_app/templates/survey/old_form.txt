@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>{{current_record.name}} </title>
+    <meta name="description" content="{{current_record.name}}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+     
+
+      <div class="col-md-12 d-flex justify-content-between align-items-center mb-4 state_parent">
+        <!-- Status Badge (Left Side) -->
+
+    <div class="action-buttons d-flex">
+            {% if record_state.code == 'draft' %}
+                <button class="btn btn-warning mx-1" onclick="changeState('in_progress')">بدء العمل</button>
+                <button class="btn btn-danger mx-1" onclick="changeState('cancelled')">إلغاء</button>
+            {% elif record_state.code == 'in_progress' %}
+                <button class="btn btn-primary mx-1" onclick="changeState('confirmed')">تأكيد</button>
+                <button class="btn btn-danger mx-1" onclick="changeState('cancelled')">إلغاء</button>
+     
+            {% endif %}
+        </div>
+        <!-- Action Buttons (Right Side) -->
+
+        <div class="status-container d-flex align-items-center">
+          <div class="status-bar">
+              <span value="{{ record_state.code }}" class="Status badge badge-{{ record_state.code }}">
+                  {{ record_state.name }}
+              </span>
+          </div>
+      </div>
+
+
+        
+    </div>
+    
+
+
+
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title"> {{current_record.name}} </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+
+              {% if current_record.state ==  'confirmed'  %}
+              <button id="CalcQuestionsRes" class="btn btn-warning">حساب نتيجة الزيارة </button>
+              {% endif %}
+              {% if current_record.state ==  'draft' or current_record.state == "in_progress"  %}
+
+
+              <button id="addQuestionsBtn" class="btn ">اضافة الاسئلة </button>
+              <a href="/survey/">
+
+            {% endif %}
+
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+          <input type="hidden" name="record_id" id="record_id" value="{{current_record.pk}}" disabled>
+
+          <div class="tile-body">
+
+            {% if messages %}
+            <div class="alert alert-info" >
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        
+ 
+
+            <form method="POST" class="form-horizontal" >
+           
+              {% csrf_token %}
+
+              <input type="hidden" name="last_refresh_time" value="{{ form.last_refresh_time.value|default:'' }}">
+
+              
+              <div class="mb-3">
+                <label>{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.date.label }}</label>
+                {{ form.date }}
+            </div>
+            
+            <div class="mb-3">
+                <label>{{ form.service_provider.label }}</label>
+                {{ form.service_provider }}
+            </div>
+            
+                   <div class="mb-4">
+                <label>{{ form.affiliate.label }}</label>
+                {{ form.affiliate }}
+            </div>
+            
+    
+            <div class="mb-3">
+                <label>يجب إضافة منطقه او مركز ؟ : </label>
+                <input type="checkbox" id="need_center_related" disabled>
+    
+            </div>
+        
+    
+    
+        <div class="mb-3">
+                <label>{{ form.center.label }}</label>
+                {{ form.center }}
+            </div>
+    
+         
+             <div class="related_field_div mt-4 mb-4">
+              <label>     نوع الخدمة الخاصة بالجهة التابعة  :</label>
+               <p class="related_field id_affiliate_entity_type_related" id="id_affiliate_entity_type_related"></p>
+            </div>
+          
+    
+         <div class="mb-3">
+                <label>{{ form.origin_type.label }}</label>
+                {{ form.origin_type }}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.main_activity.label }}</label>
+                {{ form.main_activity }}
+            </div>
+    
+            <div class="related_field_div mt-4 mb-4">
+              <label>     رئيسى / داعم  :</label>
+               <p class="related_field id_activity_type_related" id="id_activity_type_related"></p>
+            </div>
+
+
+    
+            <div class="mb-3">
+                <label>{{ form.activity_type.label }}</label>
+                {{ form.activity_type }}
+            </div>
+    
+    
+        <div class="mb-4">
+                <label>{{ form.activity_item.label }}</label>
+                {{ form.activity_item }}
+            </div>
+    
+    
+                   <div class="mb-4">
+                <label>{{ form.main_survey_sections.label }}</label>
+                {{ form.main_survey_sections }}
+            </div>
+            
+            
+
+
+                   <div class="mb-3">
+                <label>{{ form.supporting_activity_item.label }}</label>
+                {{ form.supporting_activity_item }}
+            </div>
+            
+            <div class="mb-3">
+                <label>{{ form.supporting_main_survey_sections.label }}</label>
+                {{ form.supporting_main_survey_sections }}
+            </div>
+        
+            
+    <br/>
+    
+            <h2  class="mt-4 text-right mb-4" style="color:#0763c6;" >النتائج</h2>
+    
+
+
+            <h3 class="mt-5 text-center mb-4" >
+               الدرجة النهائية  :   <span class="full_mark" style="color:#0763c6;" id="full_mark"></span>
+          </h3>
+               
+
+            <h3 class="mt-5 text-center mb-4" >
+              نتيجة الزيارة  :   <span class="visit_result" style="color:#0763c6;" id="visit_result"></span>
+          </h3>
+               
+          <h3 class="mt-4 text-center mb-4">
+              النسبة المؤية   :   <span style="color:#0763c6;" class='visit_result_percntage' id="visit_result_percntage"></span>
+          </h3>
+        
+
+
+
+
+
+          
+
+        
+                   
+            <div style="display:none" >
+                questions added: <input type="checkbox" name="questions_added" id="questions_added"disabled />    
+          
+        </div>
+                   
+            <div  style="display:none" >
+                visit result done:   <input type="checkbox" name="visit_result_done" id="visit_result_done"disabled />    
+            </div>
+          
+            
+        
+    
+            <br>
+            {% if messages %}
+            <div class="alert alert-info" >
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        
+
+         
+            <h2  class="mt-1 text-right mb-4" style="color:#0763c6;" >الأسئلة</h2>
+<br>
+            <table class=" mt-4 q_table table table-hover table-bordered" id="sampleTable">
+
+              {{ formset.management_form }}  
+
+                <thead class="q_thead">
+                    <tr>
+                        <th>قائمة الاستبيان الرئيسية  </th>
+                        <th>قائمة الاستبيان الفرعية </th>
+                        <th>السؤال</th>
+                  
+                      
+                       
+                        <th>ملحوظات</th> 
+
+                        <th>المؤشر</th>
+                         <th> الدرجة</th>
+                        <th>المجموع الجزئى (الدرجة * المؤشر)</th>
+                        <th>آخر تعديل بواسطة</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    {% for form in formset %}
+                    <tr>
+                      {{ form.id }}  
+                        <td>{{ form.instance.main_survey_section }}</td>
+                        <td>{{ form.instance.sub_survey_section }}</td>
+                        <td>{{ form.instance.question }}</td>
+ 
+                        <td>{{ form.answer_notes }}</td>
+
+                        <td>{{ form.instance.kpi }}</td>
+                        <td>{{ form.answer_percentage }}</td>
+                        <td>{{ form.instance.kpi_sub_total }}</td>
+                        <td>{{ form.last_updated_user|default:"-" }}</td>  <!-- Display last updated user -->
+                   
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+
+            <ul>
+              {% for error in form.non_field_errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          </ul>
+
+          {% if current_record.state ==  'draft' or current_record.state == "in_progress"  %}
+ 
+          
+            <br/>
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+            <br />
+
+            <button
+              id="deleteButton"
+    
+              class="btn btn-danger delete-btn"
+              data-href="{% url 'survey-delete' current_record.id %}"
+               data-record-name="{{ current_record.name }}"
+            >
+            حذف
+            </button>
+{% endif %}
+            </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+
+ 
+
+
+<!-- getters -->
+<script src="{% static 'custom/js/getters/affiliate.need_center.js' %}"></script>
+<script src="{% static 'custom/js/getters/survey_getters/affiliate.entity_type.js' %}"></script>
+<script src="{% static 'custom/js/getters/survey_getters/get_survey_res.js' %}"></script>
+<script src="{% static 'custom/js/getters/main_activity.activity_type.js' %}"></script>
+ 
+
+<!-- domains -->
+<script src="{% static 'custom/js/domains/survey_domins/affiliate_service_provider.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/entity_type_origin_type.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/activity_type_origin_type_main_activity.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/survey_activity_item_domain.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/main_survey_sections_domain.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/supporting_activity_item_domin.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/survey_supporting_main_survey_sections.js' %}"></script>
+
+
+
+<!-- invisibe requerd -->
+<script src="{% static 'custom/js/survey_invisible_requierd.js' %}"></script>
+
+
+<!-- add Questions-->
+<script src="{% static 'custom/js/add_Q.js' %}"></script>
+
+<!-- Calc Questions Res-->
+<script src="{% static 'custom/js/CalcQuestionsRes.js' %}"></script>
+
+  </body>
+</html>
+
+
+
+
+# @is_role_admin
+# @login_required
+# @require_http_methods(["GET", "POST", "PATCH", "DELETE"])
+# def survey_form_page(request, pk):
+#     if not pk:
+#         return redirect('survey-list')
+
+
+#     current_record = get_object_or_404(survey_models.Survey.objects.select_related(
+#         'service_provider', 'affiliate', 'center', 'main_activity',  'activity_type',  'activity_item',   'supporting_activity_item',  
+#     ), pk=pk)
+#     # Define the formset for related SurveyQuestion entries
+
+#     SurveyQuestionFormSet = modelformset_factory(
+#     survey_models.SurveyQuestion,
+#     form=forms.SurveyQuestionForm,  # Use the custom formset
+#     extra=0,
+#     formset=forms.BaseSurveyQuestionFormSet 
+#     )
+    
+#     if request.method == 'POST':
+        
+#         print("Total forms expected:", current_record.surveyquestion_set.count())
+#         print("Total forms submitted:", request.POST.get("form-TOTAL_FORMS"))
+                
+#         print("#####")
+#         print("#####")
+#         print("#####")
+#         print("#####")
+#         print(request.POST)
+#         print("#####")
+#         print("#####")
+#         print("#####")
+            
+#         if current_record.state not in ["draft","in_progress"]:
+#                 return  HttpResponse("Cannot Change Survey that not in  draft or in progress state ", status=400)
+        
+#         form = forms.SurveyUpdateForm(request.POST, instance=current_record)
+
+# #    issue here 
+#         formset = SurveyQuestionFormSet(request.POST, queryset=current_record.surveyquestion_set.all().select_related("survey","question","sub_survey_section","main_survey_section"))
+        
+#         print('formset ',formset)
+
+# # 
+#         request_last_refresh_time = request.POST.get("last_refresh_time")
+#         record_last_updated = current_record.last_updated
+
+
+
+#         if request_last_refresh_time:
+#             request_last_refresh_time_with_zt = datetime.fromisoformat(request_last_refresh_time).replace(tzinfo=dt_timezone.utc)
+
+#             # print("##############")
+#             # print(request_last_refresh_time, "request_last_refresh_time")
+#             # print(request_last_refresh_time_with_zt , "last_refresh_time_with_zt")
+#             # print(record_last_updated, "record_last_updated")
+#             # print("##############")
+            
+#             if record_last_updated > request_last_refresh_time_with_zt:
+#                 return HttpResponse("This survey has been updated by another user. Please refresh and try again.",status=400)
+        
+        
+
+#         if form.is_valid() and formset.is_valid():
+#             try:
+#                 if current_record.state  =='draft':
+#                     form.save()
+
+#                 formset.save(commit=True, user=request.user)  
+                
+#                 messages.success(request, "Survey updated successfully!")
+#                 return redirect("survey-form", current_record.pk)
+#             except ValidationError as e:
+#                 for error in e.messages:
+#                     messages.error(request, f"Survey error: {error}")
+#         else:
+            
+  
+#             # Capture and display errors from the main form (SurveyUpdateForm)
+#             for field, error_list in form.errors.items():
+#                 for error in error_list:
+#                     messages.error(request, f"Survey field '{field}': {error}")
+
+#             # Capture and display errors from the formset (Survey Questions)
+#             for form_error in formset.errors:
+#                 for field, error_list in form_error.items():
+#                     for error in error_list:
+#                         messages.error(request, f"Survey Question '{field}': {error}")
+
+#             messages.error(request, "There was an error with the form submission.")
+#     else:
+#         form = forms.SurveyUpdateForm(instance=current_record)
+#         formset = SurveyQuestionFormSet(queryset=current_record.surveyquestion_set.all().select_related("survey","question","sub_survey_section","main_survey_section"))
+        
+
+
+#         # Get last updated users in one query
+#         last_updated_users = {
+#             history.survey_question_id: history.updated_by
+#             for history in survey_models.SurveyQuestionsUpdateHistory.objects.filter(
+#                 survey_question__in=formset.queryset
+#             ).select_related("updated_by")
+#         }
+
+#         # Assign to formset instances
+#         for form_instance in formset:
+#             form_instance.last_updated_user = last_updated_users.get(form_instance.instance.id, None)
+
+
+
+#     return render(request, 'survey/survey_form.html', {
+#         'form': form,
+#         "record_state": {
+#         "code" : current_record.state , 
+#         "name" : current_record.get_state_display , 
+#         },
+#         "current_record": current_record,
+#         "formset": formset
+#     })
+

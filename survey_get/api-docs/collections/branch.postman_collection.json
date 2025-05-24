@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "fd8a437c-2524-4c93-9fc4-8d57684d6cd8",
+		"name": "branch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-fd8a437c-2524-4c93-9fc4-8d57684d6cd8?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/branch/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"branch",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/branch/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"branch",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:09:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "d4a24b5f93a54c5ca6378223627bc156"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=18.181199999162345;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.760600000736304;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "189"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:09:01 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"name\": \"branch 1\",\n            \"affiliate\": {\n                \"id\": 2,\n                \"name\": \"Affiliate 2\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"name\": \"branch 2\",\n            \"affiliate\": {\n                \"id\": 2,\n                \"name\": \"Affiliate 2\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/branch/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"branch",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/branch/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"branch",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:09:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "2e4a6042eaf0480d9d1963f8046ecdb3"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=23.806500001228414;desc=\"Elapsed time\", SQLPanel_sql_time;dur=5.170099997485522;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:09:51 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"branch 1\",\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new name ",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/branch/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"branch",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view patch",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name ",
+									"value": "new name ",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/branch/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"branch",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:10:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "09826633bef44c009c09752037686057"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=27.34030000101484;desc=\"Elapsed time\", SQLPanel_sql_time;dur=8.251600002040504;desc=\"SQL 5 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:10:58 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"new name\",\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new record 4",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/branch/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"branch",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new record 4",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/branch/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"branch",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:11:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "663c47c4b47a49b7853dec277df3fc6e"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=29.078200001094956;desc=\"Elapsed time\", SQLPanel_sql_time;dur=11.943499999688356;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:11:24 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"name\": \"new record 4\",\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/branch/delete/?ids=4,5",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"branch",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "4,5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

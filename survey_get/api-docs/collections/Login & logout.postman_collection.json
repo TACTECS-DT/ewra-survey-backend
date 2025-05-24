@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "268eeca9-14da-4ce9-a8ce-3b5feba18d5f",
+		"name": "Login & logout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-268eeca9-14da-4ce9-a8ce-3b5feba18d5f?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "Admin logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/logout/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jwt logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NjcyNTE3LCJpYXQiOjE3NDU2NzE2MTcsImp0aSI6ImQxNzAzNjc4OTllODQxODU4OGViNDBjMDcxYWY4NTQzIiwidXNlcl9pZCI6MX0.jWFpDJHDkiVapSUounZsQ65Ca9RD-BxUdFNvblVySu0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/jwt/logout/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"jwt",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1Njc0MTIwLCJpYXQiOjE3NDU2NzM2NDgsImp0aSI6IjRlMDA5OGUxNTdiNTRjNzlhY2YxM2I3Yzk1ODI2YTIxIiwidXNlcl9pZCI6MX0.csrftoken",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "Opt6UWQHpI9obIlp8e0YsDweLrNhIGAk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/login/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"login",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "Opt6UWQHpI9obIlp8e0YsDweLrNhIGAk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NTkzNjY1MywiaWF0IjoxNzQ1Njc3NDUzLCJqdGkiOiJmNTZkMjhkNzlkNzU0MjM5OWIxZmI1MzU2Y2RlYTBkMyIsInVzZXJfaWQiOjF9.EaOor2puLGFW5XayBIgi_6VD0zNOhwWW-xZflCLprdY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "oxqY9IWw7GQ9X2pg0NtgzwTZYCmBOXII",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/token/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NTkzNjMyOSwiaWF0IjoxNzQ1Njc3MTI5LCJqdGkiOiI4NGFlZWViYTQ5MTk0ZTk2YmFhZGNmZGJkZjkzYmI4NCIsInVzZXJfaWQiOjF9.-o9ldqmWExX7hHEaBr37IchexKQyRioRwFww_jU4-LY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/token/refresh/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>جديد</title>
+    <meta name="description" content="جديد" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      <!-- content  -->
+
+      <div class="col-md-12">
+        <div class="tile">
+
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title">جديد</h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+              <a href="/branches/">
+              <button class="btn btn-primary" style="padding-left: 2px;">العودة &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+
+
+          <div class="tile-body">
+            <form method="POST">
+              {% csrf_token %} 
+              
+              
+             
+        <div>
+          <label>{{ form.name.label }}</label>
+          {{ form.name }}
+      </div>
+      
+      <div>
+          <label>{{ form.affiliate.label }}</label>
+          {{ form.affiliate }}
+      </div>
+  
+
+
+      <div class="related_field_div mt-4 mb-4">
+        <label>  مقدم الخدمة  :</label>
+         <p class="related_field id_service_provider_related" id="id_service_provider_related"></p>
+      </div>
+    
+
+
+<br/>
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--end content  -->
+    {% include 'utils/footer_files.html' %}
+
+
+
+   <!-- getters -->
+   <script src="{% static 'custom/js/getters/affiliate.service_provider.js' %}"></script>
+  
+ 
+
+  </body>
+</html>

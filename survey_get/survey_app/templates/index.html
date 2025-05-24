@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    {% load static %} 
+    
+
+
+    <title>Home</title>
+    <meta name="description" content="Dashboard">
+
+    {% include 'utils/header_files.html' %}
+</head>
+<body class="app sidebar-mini rtl">
+
+    {% include 'utils/navbar.html' %}
+    {% include 'utils/sidebar.html' %}
+    
+
+    <main class="app-content">
+        {% include 'utils/sub_header.html' %}
+
+
+
+        <div class="row">
+         
+          <div class="col-md-6 col-lg-3">
+            <a href="{% url 'activity_items_geo' %}"> 
+               <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+    
+              <div class="info">
+                <h4>البيانات الجغرافية للمواقع</h4>
+                <p><b>{{activity_items_n}} موقع</b></p>
+              </div>
+            </div> 
+          </a>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <a href="{% url 'reports' %}"> 
+            <div class="widget-small info coloured-icon"><i class="icon fa fa-dashboard fa-3x"></i>
+              <div class="info">
+                <h4>التقارير</h4>
+                <p><b>{{data2}}</b></p>
+              </div>
+            </div>
+          </a>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon"><i class="icon fa fa-external-link fa-3x"></i>
+              <div class="info">
+                <h4>data3</h4>
+                <p><b>{{data3}}</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon"><i class="icon fa fa-file-text  fa-3x"></i>
+              <div class="info">
+                <h4>data4</h4>
+                <p><b>{{data4}}</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+   
+
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="row">
+
+              <div class="col-6">
+                <h3 class="tile-title"> actions and reports</h3>
+
+            </div>
+            
+              <div class="col-6 text-left">
+                
+                <button class="btn btn-primary" style="padding-left: 2px;">action &nbsp;
+                  <i class="fa fa-sliders"></i></button>
+       
+            </div>
+            
+            </div>
+            
+
+
+
+            <div class="tile-body">
+              <label for="modelSelect">Choose a model:</label>
+              <select id="modelSelect">
+                  <option value="all">All</option>
+                  <option value="Governorate">Governorate</option>
+                  <option value="Center">Center</option>
+                  <option value="ServiceProvider">ServiceProvider</option>
+                  <option value="Affiliate">Affiliate</option>
+                  <option value="Branch">Branch</option>
+                  <option value="MainActivity">MainActivity</option>
+                  <option value="ActivityType">ActivityType</option>
+                  <option value="ActivityItem">ActivityItem</option>
+                  <option value="MainSurveySection">MainSurveySection</option>
+                  <option value="SubSurveySection">SubSurveySection</option>
+                  <option value="QuestionBank">QuestionBank</option>
+                  <option value="Survey">Survey</option>
+                  <option value="SurveyQuestion">SurveyQuestion</option>
+                  <!-- <option value="SurveyQuestionsUpdateHistory">SurveyQuestionsUpdateHistory</option> -->
+              </select>
+
+            <button onclick="exportToExcel()">Export</button>
+            <button onclick="exportm2mToExcel()">Export m2m</button>
+
+              <script>
+                  function exportToExcel() {
+                      const model = $('#modelSelect').val();
+                      let url = `/export-model/?model=${model}`;
+                      window.location.href = url;
+                  } 
+                    function exportm2mToExcel() {
+                      let url = `/export-m2m-model/`;
+
+                      window.location.href = url;
+                  }
+              </script>
+
+
+            </div>
+          </div>
+        </div>
+    
+
+      </main>
+
+    
+    {% include 'utils/footer_files.html' %}
+  </body>
+</html>

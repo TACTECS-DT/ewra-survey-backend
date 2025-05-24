@@ -1,0 +1,10 @@
+
+survey_get/.idea/
+survey_get/.vscode/
+survey_get/venv/
+survey_get/logs/
+survey_get/staticfiles/
+survey_get/survey_app/migrations/
+survey_get/media/
+survey_get/media/attachments/
+survey_get/.env

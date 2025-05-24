@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "b59fb53d-fca6-462d-978c-bc02802391d0",
+		"name": "main-activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-b59fb53d-fca6-462d-978c-bc02802391d0?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/main-activity/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"main-activity",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/main-activity/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"main-activity",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:30:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "c4e58b42153b454c85843db92c3d12ca"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=17.438100001527346;desc=\"Elapsed time\", SQLPanel_sql_time;dur=3.3197999982803594;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "469"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:30:44 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 3,\n            \"name\": \"main-activity 1\",\n            \"entity_type\": {\n                \"key\": \"sewage\",\n                \"value\": \"صرف\"\n            },\n            \"activity_type\": {\n                \"key\": \"main\",\n                \"value\": \"رئيسى\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"name\": \"main-activity 2\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"activity_type\": {\n                \"key\": \"main\",\n                \"value\": \"رئيسى\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"main-activity 3\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"activity_type\": {\n                \"key\": \"main\",\n                \"value\": \"رئيسى\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/main-activity/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"main-activity",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/main-activity/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"main-activity",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:31:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "b51d208c530e4a8ba32923452f8adb6a"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=14.930999999705818;desc=\"Elapsed time\", SQLPanel_sql_time;dur=3.106300000581541;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:31:12 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"main-activity 3\",\n    \"entity_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"activity_type\": {\n        \"key\": \"main\",\n        \"value\": \"رئيسى\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new name ",
+							"type": "text"
+						},
+						{
+							"key": "entity_type",
+							"value": "sewage",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "supporter",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/main-activity/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"main-activity",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view patch",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name ",
+									"value": "new name ",
+									"type": "text"
+								},
+								{
+									"key": "entity_type",
+									"value": "sewage",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "supporter",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/main-activity/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"main-activity",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:32:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "0d1e4f8a1d984aeaa810d1c9239010b8"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=20.404799999596435;desc=\"Elapsed time\", SQLPanel_sql_time;dur=3.15010000122129;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "129"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:32:02 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"new name\",\n    \"entity_type\": {\n        \"key\": \"sewage\",\n        \"value\": \"صرف\"\n    },\n    \"activity_type\": {\n        \"key\": \"supporter\",\n        \"value\": \"داعم\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new item",
+							"type": "text"
+						},
+						{
+							"key": "entity_type",
+							"value": "water",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "main",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/main-activity/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"main-activity",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new item",
+									"type": "text"
+								},
+								{
+									"key": "entity_type",
+									"value": "water",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "main",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/main-activity/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"main-activity",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 12:32:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "faed0f5128254b518f256627cd7c34ca"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=18.790299998727278;desc=\"Elapsed time\", SQLPanel_sql_time;dur=3.0283999985840637;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 12:32:45 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"new item\",\n    \"entity_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"activity_type\": {\n        \"key\": \"main\",\n        \"value\": \"رئيسى\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/main-activity/delete/?ids=6,7",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"main-activity",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "6,7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

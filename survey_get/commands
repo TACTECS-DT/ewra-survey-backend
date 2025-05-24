@@ -1,0 +1,51 @@
+venv\Scripts\activate
+C:\Users\omar\AppData\Local\Programs\Python\Python311\python.exe 
+
+or source ./activate
+
+deactivate
+survey
+python -m venv venv
+
+cd survey
+django-admin startproject survey
+python manage.py startapp survey_app
+python manage.py makemigrations survey_app
+python manage.py migrate
+python manage.py runserver
+
+python manage.py createsuperuser
+python manage.py collectstatic
+pip install whitenoise
+
+pip freeze > requirements.txt
+pip install -r  requirements.txt
+
+locust -f locustfile/preformance_test.py
+
+
+
+ python manage.py check --deploy
+
+
+ select * from  survey_app_doctors_id_seq ;
+
+#  for postgres sql 
+select setval('survey_app_doctors_id_seq' ,1003,true);   
+
+# for mysql 
+ its done automaticly 
+SHOW TABLE STATUS LIKE 'survey_app_doctors';
+
+
+
+
+SELECT setval('survey_app_survey_id_seq',
+			  (SELECT MAX(id) FROM survey_app_survey));
+
+
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> -->
+
+    <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->

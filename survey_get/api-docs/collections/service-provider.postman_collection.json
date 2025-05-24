@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "9fafc799-31dc-43c1-bafc-7ee90d446e30",
+		"name": "service-provider",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-9fafc799-31dc-43c1-bafc-7ee90d446e30?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/service-provider/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"service-provider",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/service-provider/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"service-provider",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:35:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "faa1646d0b3149c7b1bc21f6c65abd0c"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=18.311799998627976;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.4391000006289687;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:35:33 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"name\": \"8\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/service-provider/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"service-provider",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/service-provider/2/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"service-provider",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:35:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "d8d0322551314fbab69cbb7b1ed2cd41"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=18.017300000792602;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.1450000022014137;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:35:53 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"8\"\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new name ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/service-provider/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"service-provider",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new record",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/service-provider/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"service-provider",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new record",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/service-provider/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"service-provider",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:36:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "92263f0c282b4809b7d4f94d85a7348c"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=21.41470000060508;desc=\"Elapsed time\", SQLPanel_sql_time;dur=5.997299998853123;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:36:11 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 9,\n    \"name\": \"new record\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/service-provider/delete/?ids=2,3",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"service-provider",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "2,3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

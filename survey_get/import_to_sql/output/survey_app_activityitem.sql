@@ -1,0 +1,3 @@
+INSERT INTO survey_app_activityitem (id, name, entity_type, latitude, longitude, main_activity_id, activity_type_id, affiliate_id, center_id, branch_id) VALUES ('1', 'الموقع ١', 'water', '30.0444', '31.2357', '1', '1', '1', '1', '1');
+INSERT INTO survey_app_activityitem (id, name, entity_type, latitude, longitude, main_activity_id, activity_type_id, affiliate_id, center_id, branch_id) VALUES ('3', 'المحطة الامريكية 2', 'water', '31.2001', '29.9187', '1', '1', '1', '1', '1');
+INSERT INTO survey_app_activityitem (id, name, entity_type, latitude, longitude, main_activity_id, activity_type_id, affiliate_id, center_id, branch_id) VALUES ('4', 'محطة فرعية', 'water', NULL, NULL, '1', '2', '1', '1', '1');

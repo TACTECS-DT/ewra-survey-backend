@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>الصلاحيات</title>
+    <meta name="description" content="الصلاحيات" />
+    <link rel="stylesheet" href="{% static 'custom/css/main.css' %}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      <!--start content  -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+
+
+ <!--  start new and pagination -->
+<div class="row align-items-right">
+  <!-- "New" Button -->
+  <div class="col-md-4 col-12 mb-3 mb-md-0 text-right text-md-start">
+       
+    <button id="check-permissions-btn" style="
+    background-color: #ffeb3b; /* Yellow background */
+    color: #000; /* Black text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 8px; /* Space between icon and text */
+">
+    <!-- Sync Icon (HTML Symbol) -->
+    <span style="font-size: 20px;">&#x21bb;</span> <!-- Unicode sync symbol -->
+مزامنة
+  </button>
+
+    <p id="message" class="mt-4"></p>
+
+  </div>
+
+  <div class="col-8 pagination pagination_div">
+    {% if fitched_records.has_previous %}
+        <a href="?page={{ fitched_records.previous_page_number }}">&laquo;</a>
+    {% endif %}
+    {% for num in fitched_records.paginator.page_range %}
+        <a href="?page={{ num }}" {% if fitched_records.number == num %}style="background-color: #007bff; color: white;"{% endif %}>{{ num }}</a>
+    {% endfor %}
+    {% if fitched_records.has_next %}
+        <a href="?page={{ fitched_records.next_page_number }}">&raquo;</a>
+    {% endif %}
+</div>
+ 
+</div>
+ <!-- end pagination and create  -->
+
+
+
+
+            <div class="tile-body table-responsive ">
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>الاسم</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                  {% for record in fitched_records %}
+                  <tr>
+                      <td>
+                          <a href="{% url 'permissions-form' record.id %}">{{ record.user.get_full_name  }}</a>
+                      </td>
+                      <td>
+                          <a href="{% url 'permissions-form' record.id %}" class="edit-btn">تعديل</a>
+                          
+                      </td>
+                  </tr>
+                  {% endfor %}
+                  {% if not fitched_records %}
+                  <tr>
+                      <td colspan="2" style="text-align: center;">لا توجد بيانات</td>
+                  </tr>
+                  {% endif %}
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+
+    
+    <script>
+        $(document).ready(function() {
+            $('#check-permissions-btn').click(function() {
+                $.ajax({
+                    url: "{% url 'permissions-check-create' %}",
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#message').text(response.message).css('color', 'green');
+                        } else {
+                            $('#message').text(response.message).css('color', 'red');
+                        }
+                    },
+                    error: function() {
+                        $('#message').text("An error occurred. Please try again.").css('color', 'red');
+                    }
+                });
+            });
+        });
+    </script>
+  
+  </body>
+</html>

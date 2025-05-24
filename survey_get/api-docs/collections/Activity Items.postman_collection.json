@@ -1,0 +1,667 @@
+{
+	"info": {
+		"_postman_id": "7bb6f80e-6340-4ecd-ad91-04bdfa87010f",
+		"name": "Activity Items",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-7bb6f80e-6340-4ecd-ad91-04bdfa87010f?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/activity-item/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"activity-item",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/activity-item/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"activity-item",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:33:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "fe4d5f489f304f2897d8a5c20baf21f9"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=36.694899998110486;desc=\"Elapsed time\", SQLPanel_sql_time;dur=12.173799997981405;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1570"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:33:34 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 8,\n    \"next\": \"http://127.0.0.1:3000/api/activity-item/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 4,\n            \"name\": \"x1b2\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"latitude\": \"new post\",\n            \"longitude\": \"new post\",\n            \"main_activity\": {\n                \"id\": 3,\n                \"name\": \"1\"\n            },\n            \"activity_type\": {\n                \"id\": 1,\n                \"name\": \"8\"\n            },\n            \"affiliate\": {\n                \"id\": 3,\n                \"name\": \"new name\"\n            },\n            \"center\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"branch\": {\n                \"id\": 2,\n                \"name\": \"8\"\n            }\n        },\n        {\n            \"id\": 1,\n            \"name\": \"new name\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"latitude\": \"2\",\n            \"longitude\": \"2\",\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"9\"\n            },\n            \"activity_type\": {\n                \"id\": 2,\n                \"name\": \"2\"\n            },\n            \"affiliate\": {\n                \"id\": 3,\n                \"name\": \"new name\"\n            },\n            \"center\": {\n                \"id\": 3,\n                \"name\": \"center 1\"\n            },\n            \"branch\": {\n                \"id\": 3,\n                \"name\": \"3\"\n            }\n        },\n        {\n            \"id\": 22,\n            \"name\": \"new record\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"latitude\": \"2\",\n            \"longitude\": \"2\",\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"9\"\n            },\n            \"activity_type\": {\n                \"id\": 2,\n                \"name\": \"2\"\n            },\n            \"affiliate\": {\n                \"id\": 3,\n                \"name\": \"new name\"\n            },\n            \"center\": {\n                \"id\": 3,\n                \"name\": \"center 1\"\n            },\n            \"branch\": {\n                \"id\": 3,\n                \"name\": \"3\"\n            }\n        },\n        {\n            \"id\": 21,\n            \"name\": \"new record 44\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"latitude\": \"2\",\n            \"longitude\": \"2\",\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"9\"\n            },\n            \"activity_type\": {\n                \"id\": 2,\n                \"name\": \"2\"\n            },\n            \"affiliate\": {\n                \"id\": 3,\n                \"name\": \"new name\"\n            },\n            \"center\": {\n                \"id\": 3,\n                \"name\": \"center 1\"\n            },\n            \"branch\": {\n                \"id\": 3,\n                \"name\": \"3\"\n            }\n        },\n        {\n            \"id\": 20,\n            \"name\": \"new record 4\",\n            \"entity_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"latitude\": \"2\",\n            \"longitude\": \"2\",\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"9\"\n            },\n            \"activity_type\": {\n                \"id\": 2,\n                \"name\": \"2\"\n            },\n            \"affiliate\": {\n                \"id\": 3,\n                \"name\": \"new name\"\n            },\n            \"center\": {\n                \"id\": 3,\n                \"name\": \"center 1\"\n            },\n            \"branch\": {\n                \"id\": 3,\n                \"name\": \"3\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/activity-item/1/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"activity-item",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view-get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/activity-item/1/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"activity-item",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:33:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "6876ec6c061745cebb53de519e486959"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=33.430899999075336;desc=\"Elapsed time\", SQLPanel_sql_time;dur=10.371500000474043;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "289"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:33:44 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"new name\",\n    \"entity_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"latitude\": \"2\",\n    \"longitude\": \"2\",\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"9\"\n    },\n    \"activity_type\": {\n        \"id\": 2,\n        \"name\": \"2\"\n    },\n    \"affiliate\": {\n        \"id\": 3,\n        \"name\": \"new name\"\n    },\n    \"center\": {\n        \"id\": 3,\n        \"name\": \"center 1\"\n    },\n    \"branch\": {\n        \"id\": 3,\n        \"name\": \"3\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "form view-patch",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new",
+							"type": "text"
+						},
+						{
+							"key": "entity_type",
+							"value": "water",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "main_activity",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "center",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "branch",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/activity-item/1/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"activity-item",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view-patch",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "entity_type",
+									"value": "water",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "main_activity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "center",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "branch",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/activity-item/1/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"activity-item",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:33:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "7e196b13b7164e42b9c40de236bb620c"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=56.18750000212458;desc=\"Elapsed time\", SQLPanel_sql_time;dur=13.469900004565716;desc=\"SQL 9 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "284"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:33:59 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"new\",\n    \"entity_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"latitude\": \"2\",\n    \"longitude\": \"2\",\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"9\"\n    },\n    \"activity_type\": {\n        \"id\": 2,\n        \"name\": \"2\"\n    },\n    \"affiliate\": {\n        \"id\": 3,\n        \"name\": \"new name\"\n    },\n    \"center\": {\n        \"id\": 3,\n        \"name\": \"center 1\"\n    },\n    \"branch\": {\n        \"id\": 3,\n        \"name\": \"3\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "demo name",
+							"type": "text"
+						},
+						{
+							"key": "entity_type",
+							"value": "water",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "main_activity",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "center",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "branch",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/activity-item/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"activity-item",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "demo name",
+									"type": "text"
+								},
+								{
+									"key": "entity_type",
+									"value": "water",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "main_activity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "center",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "branch",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/activity-item/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"activity-item",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 16:34:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "cec61c85fceb45339f5f400b21e1acde"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=41.720299999724375;desc=\"Elapsed time\", SQLPanel_sql_time;dur=14.287699999840697;desc=\"SQL 8 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "291"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Wed, 30 Apr 2025 16:34:33 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 23,\n    \"name\": \"demo name\",\n    \"entity_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"latitude\": \"2\",\n    \"longitude\": \"2\",\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"9\"\n    },\n    \"activity_type\": {\n        \"id\": 2,\n        \"name\": \"2\"\n    },\n    \"affiliate\": {\n        \"id\": 3,\n        \"name\": \"new name\"\n    },\n    \"center\": {\n        \"id\": 3,\n        \"name\": \"center 1\"\n    },\n    \"branch\": {\n        \"id\": 3,\n        \"name\": \"3\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/activity-item/delete/?ids=4,1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"activity-item",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "4,1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

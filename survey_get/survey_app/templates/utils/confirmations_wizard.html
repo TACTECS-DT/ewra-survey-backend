@@ -1,0 +1,116 @@
+
+
+<div class="modal fade" id="universalConfirmModal" tabindex="-1" aria-labelledby="universalConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header text-dark" id="universalConfirmModalHeader">
+          <h5 class="modal-title" id="universalConfirmModalLabel">تأكيد الإجراء</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="إغلاق">&times;</button>
+        </div>
+        <div class="modal-body" id="universalConfirmModalBody">
+          هل أنت متأكد من تنفيذ هذا الإجراء؟
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+          <button type="button" class="btn " id="universalConfirmModalConfirmBtn">تأكيد</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let confirmAction = null;
+
+function startConfirmationModal(title, message,type, action) {
+    document.getElementById('universalConfirmModalLabel').innerText = title;
+    document.getElementById('universalConfirmModalBody').innerText = message;
+    confirmAction = action;
+
+
+    const header = document.getElementById('universalConfirmModalHeader');
+    const confirmBtn = document.getElementById('universalConfirmModalConfirmBtn');
+    // Remove previous classes
+    header.classList.remove('bg-warning', 'bg-danger', 'bg-success', 'bg-primary', 'bg-info');
+    confirmBtn.classList.remove('btn-warning', 'btn-danger', 'btn-success', 'btn-primary', 'btn-info');
+
+    // Add new dynamic class
+    header.classList.add(`bg-${type}`);
+    confirmBtn.classList.add(`btn-${type}`);
+
+
+    const modal = new bootstrap.Modal(document.getElementById('universalConfirmModal'));
+    modal.show();
+
+}
+
+document.getElementById('universalConfirmModalConfirmBtn').addEventListener('click', function () {
+    if (typeof confirmAction === 'function') {
+        confirmAction();
+    }
+    const modalElement = bootstrap.Modal.getInstance(document.getElementById('universalConfirmModal'));
+    modalElement.hide();
+});
+
+  </script>
+  
+
+<style>
+    #universalConfirmModal{
+    .modal-content {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .modal-body {
+        padding: 1.5rem 2rem;
+    }
+    
+    .modal-footer .btn {
+        min-width: 100px;
+    }
+    
+    .modal-header .modal-title {
+        font-size: 1.25rem;
+    }
+    .modal-backdrop {
+        display: none;
+    }
+    
+    button.btn-warning {
+        color: #fff;
+    }
+    .btn-close {
+        padding: 0px 11px;
+        background: transparent;
+        border: none;
+      
+    }
+    .btn-warning:hover{
+        background-color: #ffc107 !important;
+  border-color: #ffc107 !important; 
+
+    } 
+       .btn-danger:hover{
+        background-color: #dc3545 !important;
+        border-color: #dc3545 !important;
+
+    }  
+    
+    .btn-secondary:hover{
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+ 
+    }   .btn-close:hover{
+        background-color: transparent  !important;
+        border-color: #6c757d !important;
+        cursor: pointer;
+
+    }
+
+
+}
+.modal-backdrop {
+    display: none;
+}
+</style>

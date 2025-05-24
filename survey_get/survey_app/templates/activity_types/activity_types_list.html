@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title> نوع النشاط</title>
+    <meta name="description" content="    نوع النشاط   " />
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'custom/css/main.css' %}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+    {% include 'delete_wizard.html' %}
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      <!--start content  -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+
+
+ <!--  start new and pagination -->
+<div class="row align-items-right">
+  <!-- "New" Button -->
+  <div class="col-md-4 col-12 mb-3 mb-md-0 text-right text-md-start">
+      <a href="/activity-types/new/">
+          <button class="btn btn-primary" type="button">
+              جديد
+          </button>
+      </a>
+  </div>
+
+  <div class="col-8 pagination pagination_div">
+    {% if fitched_records.has_previous %}
+        <a href="?page={{ fitched_records.previous_page_number }}">&laquo;</a>
+    {% endif %}
+    {% for num in fitched_records.paginator.page_range %}
+        <a href="?page={{ num }}" {% if fitched_records.number == num %}style="background-color: #007bff; color: white;"{% endif %}>{{ num }}</a>
+    {% endfor %}
+    {% if fitched_records.has_next %}
+        <a href="?page={{ fitched_records.next_page_number }}">&raquo;</a>
+    {% endif %}
+</div>
+ 
+</div>
+ <!-- end pagination and create  -->
+
+
+
+
+            <div class="tile-body table-responsive">
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>الاسم</th>
+                    <th>نوع الاصل</th>
+                    <th>النشاط الرئيسى / داعم</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                  {% for record in fitched_records %}
+                  <tr>
+                      <td>
+                          <a href="{% url 'activity-types-form' record.id %}">{{ record.name }}</a>
+                      </td>
+
+                      <td>{{ record.get_entity_type_display}}</td>
+                      <td>{{ record.main_activity.name }}</td>
+
+                      <td>
+                          <a href="{% url 'activity-types-form' record.id %}" class="edit-btn">تعديل</a>
+                          <button class="delete-btn  btn btn-danger "    id="deleteButton" data-href="{% url 'activity-types-delete' record.id %}" data-record-name="{{ record.name }}">حذف</button>
+                      </td>
+                  </tr>
+                  {% endfor %}
+                  {% if not fitched_records %}
+                  <tr>
+                      <td colspan="2" style="text-align: center;">لا توجد بيانات</td>
+                  </tr>
+                  {% endif %}
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+  </body>
+</html>

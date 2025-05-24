@@ -1,0 +1,165 @@
+.app-nav{
+    .fix_1{
+       text-align: right;
+       
+
+    }
+}
+
+.login-content{
+.fix_2{
+    background-color:white  !important;
+    padding: 50px;
+}
+}
+
+
+.related_field_div {
+    font-weight: bold;
+   
+    color: green;
+}
+.related_field {
+   
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: green;
+    font-weight: bold;
+    /* color: #495057; */
+    background-color: #FFF;
+    background-clip: padding-box;
+    border: 2px solid #ced4da;
+}
+
+button:hover , .btn:hover , .btn-primary:hover{
+    background-color: #0763c6 !important;
+    outline-color: #0763c6 !important;
+    border-color: #0763c6 !important;
+}
+
+
+.app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
+
+    background-color: #0763c6 ;
+ 
+  }
+#deleteButton:hover ,#confirmDeleteBtn:hover {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+
+   
+}
+
+.app-sidebar {
+    .app-menu li {
+        padding-top: 7px;
+      /* padding-bottom: 10px; */
+        
+    }
+
+}
+
+.delete-btn{
+    margin-right: 20px;
+}
+
+.sub_nav_header{
+    color: #0763c6;
+    font-weight: bold !important;
+}
+.sub_nav_header::after{
+    text-align: right;
+    content: "";
+    width: 10%;
+    height: 5px;
+    background: linear-gradient(to right, #007bff, #00c4ff);
+    position: absolute;
+    bottom: -3px;
+    right: 15px;
+    border-radius: 10px;
+
+}
+.form-horizontal {
+    font-weight: bold;
+}
+#addQuestionsBtn{
+    background:green;
+    color: white;
+    border-color:green ;
+    margin-left: 10px;
+}
+#addQuestionsBtn:hover{
+    background:green !important;
+    color: white !important;
+    border-color:green !important;
+}
+
+.q_thead{
+    background-color: #007bff;
+    background: linear-gradient(to right, #007bff, #00c4ff);
+
+    color: white;
+}
+
+
+
+
+.q_thead tbody tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.q_table tbody tr:nth-child(odd) {
+    background: #f8f9fa;
+}
+.q_table{
+    text-align: right;
+    direction: rtl; /* For Arabic */
+}
+
+select ,input ,textarea ,label {
+    font-weight: bold;}
+
+
+    
+.form_bool {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 20px !important;
+  margin-top: 20px !important;
+}
+
+.tile-title {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }
+
+table td {
+    max-width: 200px; /* or whatever fits your layout */
+    overflow-wrap: break-word;
+    word-break:  keep-all;
+    white-space: normal;
+  }
+
+
+  /* General fix for table cells or any div/span with long content */
+td, .form-control, .related_field {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+
+
+  }
+  
+  
+  .modal-body {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }

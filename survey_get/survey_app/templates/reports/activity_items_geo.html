@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    {% load static %}
+
+
+
+    <title>البيانات الجغرافية للمواقع</title>
+    <meta name="description" content="Dashboard">
+
+    {% include 'utils/header_files.html' %}
+
+    <script  src="{% static 'core/js/leaflet.js' %}" ></script>
+
+    <link rel="stylesheet" href="{% static 'core/css/leaflet.css?v=1.3' %}" />
+
+<link rel="stylesheet" href="{% static 'custom/css/map.css?v=1.1' %}" />
+
+
+</head>
+<body class="app sidebar-mini rtl">
+
+    {% include 'utils/navbar.html' %}
+    {% include 'utils/sidebar.html' %}
+
+
+    <main class="app-content">
+        {% include 'utils/sub_header.html' %}
+
+
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="row">
+
+              <div class="col-6">
+                <h3 class="tile-title">GEO Report</h3>
+
+            </div>
+
+              <div class="col-6 text-left">
+
+                <button class="btn btn-primary" style="padding-left: 2px;">action &nbsp;
+                  <i class="fa fa-sliders"></i></button>
+
+            </div>
+
+            </div>
+
+
+
+
+            <div class="tile-body">
+<div id="map"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+
+
+    {% include 'utils/footer_files.html' %}
+
+
+
+
+ 
+<script type="module" src="{% static 'custom/js/reports/get_activity_items_geo_report.js' %}"></script>
+
+
+
+  </body>
+</html>

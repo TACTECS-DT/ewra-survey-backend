@@ -1,0 +1,79 @@
+# (CEH)  for Custom Exception Handler to tag error with my exception_handler
+
+# no need to handel any exception becaus i have my custom global handeler just use :
+
+ 
+.get_object_or_404() will ereturn respoe so dont use it and rais ValidationError
+     .is_valid(raise_exception=True)
+
+      .get_queryset() and want to let Http404 bubble up
+
+     dealing with standard DRF view logic (serializers, filters, paginators)
+
+     and this will rais  exception to my handler 
+
+
+    
+⚠️ Still useful to use try/except when:
+
+    Business logic exceptions (like: "user tried to delete something they don’t own")
+
+    You want to raise a custom error based on logic, e.g.:
+
+if some_condition:
+    raise ValidationError("You can't do that")
+
+You want to retry, fallback, or handle some external errors:
+
+    External API fails
+
+    File not found or opened
+
+    Database timeout (rare but may happen)
+
+You want to control flow, not just formatting:
+
+    try:
+        result = call_something_critical()
+    except TimeoutError:
+        fallback()
+
+In the example:
+
+try:
+    result = call_something_critical()
+except TimeoutError:
+    fallback()
+
+You’re controlling the flow of your code by explicitly handling certain types of errors in a specific way.
+What’s happening?
+
+    The try block is where the risky operation happens. In this case, call_something_critical() might raise a TimeoutError.
+
+    The except TimeoutError block is the handler for that error. If TimeoutError occurs, it will not crash your app. Instead, you can handle it gracefully by executing a fallback() function, logging, or taking any alternative action.
+
+This is different from simply formatting or logging the error. Here, you're making decisions about how to respond to or mitigate the error.
+
+
+
+
+
+
+
+
+
+/////////////// not allowed Chars in name of any record 
+
+
+- ord("\\") → "\\u005C"
+- ord("'") → "\\u0027"
+- ord('"') → "\\u0022"
+- ord(">") → "\\u003E"
+- ord("<") → "\\u003C"
+- ord("&") → "\\u0026"
+- ord("=") → "\\u003D"
+- ord("-") → "\\u002D"
+- ord(";") → "\\u003B"
+- ord("`") → "\\u0060"
+- ord("\u2028") → "\\u2028"
+- ord("\u2029") → "\\u2029"

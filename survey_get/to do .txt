@@ -1,0 +1,25 @@
+Time zone from request and  +2 and +3 handleing 
+search for TODO tag
+performance test 
+lang sweich ar/en
+add select_related and prefitch related in all views
+locast test 
+security test
+
+- generate  new SECRET_KEY for production  and the length based on jwt hash alg (eg 256)
+-cron jop to delete expired sessions from database 
+set SESSION_COOKIE_AGE 
+set ACCESS_TOKEN_LIFETIME and REFRESH_TOKEN_LIFETIME
+set IDLE_TIME
+set RECORD_PER_PAGE
+
+test :
+XSS Attack 
+SQL Injection
+-remove         'rest_framework.authentication.SessionAuthentication', and back to jwt
+
+
+
+    {% load form_extras %}
+
+      {{ form.center|with_data_original }}

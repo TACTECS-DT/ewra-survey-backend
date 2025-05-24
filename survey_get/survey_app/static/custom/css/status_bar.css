@@ -1,0 +1,33 @@
+.state_parent {
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+    
+    
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 12px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.badge-draft {
+    background-color: #6c757d; 
+}
+
+.badge-in_progress {
+    background-color: #ffc107; /* Yellow */
+    color: black;
+}
+
+.badge-confirmed {
+    background-color: #28a745;; 
+}
+
+.badge-cancelled {
+    background-color: #df1818; /
+}

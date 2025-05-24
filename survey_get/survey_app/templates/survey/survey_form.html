@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+    <title>{{current_record.name}} </title>
+    <meta name="description" content="{{current_record.name}}" />
+
+    {% include 'utils/header_files.html' %}
+    {% include 'utils/attachments_wizard.html' %}
+
+    <!-- add Questions-->
+<script src="{% static 'custom/js/add_Q.js' %}"></script>
+
+<!-- Calc Questions Res-->
+<script src="{% static 'custom/js/CalcQuestionsRes.js' %}"></script>
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/confirmations_wizard.html' %}
+    {% include 'utils/navbar.html' %}
+     {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+      <style>
+
+        #percentage_selections{
+
+
+          appearance: none; /* Remove default styling (for most browsers) */
+          -webkit-appearance: none;
+          -moz-appearance: none;
+        
+          background-color: #f9f9f9;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          padding: 10px 40px 10px 15px;
+          font-size: 16px;
+          color: #333;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+          cursor: pointer;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' fill='none' stroke='%23666' stroke-width='15'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 12px center;
+          background-size: 16px;
+        }
+        
+        #percentage_selections:hover {
+          border-color: #888;
+        }
+        
+        #percentage_selections:focus {
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+        
+        
+        .table_header_With_dotes {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 10px;
+        }
+        
+        .column-toggle {
+          position: relative;
+          margin-left: 15px; /* space from the left side */
+        }
+        
+        .toggle-button {
+          cursor: pointer;
+          font-size: 18px;
+          padding: 6px 12px;
+          user-select: none;
+          background: #f0f4fa;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          color: #0763c6;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          transition: background 0.3s;
+        }
+        
+        .toggle-button:hover {
+          background-color: #e2ecf9;
+        }
+        
+        .toggle-menu {
+          display: none;
+          position: absolute;
+          top: 120%;
+          left: 0;
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+          z-index: 999;
+          min-width: max-content;
+          max-width: 90vw;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        
+        .toggle-menu label {
+          cursor: pointer;
+          display: block;
+          margin: 5px 0;
+          white-space: normal;
+        }
+        
+
+
+
+
+
+
+
+
+        
+
+      </style>
+     
+
+      <div class="col-md-12 d-flex justify-content-between align-items-center mb-4 state_parent">
+        <!-- Status Badge (Left Side) -->
+
+    <div class="action-buttons d-flex">
+      
+      {% if record_state.code == 'draft' %}
+
+      <button class="btn btn-warning mx-1" o  onclick="startConfirmationModal('بدء العمل', ' لن تستطيع التعديل على بيانات الاستبيان الأساسية بعد هذه المرحلة  ,هل أنت متأكد أنك تريد بدء العمل؟','warning', function() { changeState('in_progress'); })">بدء العمل</button>
+
+      {% endif %}
+
+
+    
+
+      {% if    is_manager  and record_state.code != 'draft' %}
+        
+      <button class="btn btn-danger mx-1" o  onclick="startConfirmationModal('الرجوع لمسودة','هل أنت متأكد أنك تريد الرجوع لمسودة' ,'danger', function() { changeState('draft'); })"> الرجوع لمسودة</button>
+
+
+      {% endif %}
+
+
+
+
+
+      {% if    is_admin or is_manager %}
+    
+
+            {% if record_state.code == 'in_progress' %}
+                <button class="btn btn-primary mx-1" onclick="changeState('confirmed')">تأكيد</button>
+
+   
+                <button class="btn btn-danger mx-1" o  onclick="startConfirmationModal(' إلغاء', ' هل أنت متأكد أنك تريد  الالغاء؟','danger', function() { changeState('cancelled'); })"> إلغاء</button>
+
+
+            {% endif %}
+            {% endif %}`
+            
+        </div>
+        <!-- Action Buttons (Right Side) -->
+
+        <div class="status-container d-flex align-items-center">
+          <div class="status-bar">
+              <span value="{{ record_state.code }}" class="Status badge badge-{{ record_state.code }}">
+                  {{ record_state.name }}
+              </span>
+          </div>
+      </div>
+
+
+        
+    </div>
+    
+
+
+
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title"> {{current_record.name}} </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+
+
+        
+
+
+     
+
+              {% if    is_admin or is_manager %}
+
+              
+              {% if current_record.state ==  'confirmed'  and not current_record.visit_result_done  %}
+            
+            
+              <button class="btn btn-warning mx-1" o  onclick="startConfirmationModal('حساب نتيجة الزيارة ', ' هل أنت متأكد أنك تريد  حساب نتيجة الزيارة ؟ سيتم محو  النتيجة القديمة ان وجدت . ','warning', function() { CalcQuestionsRes(); })">  حساب نتيجة الزيارة  </button>
+
+            
+              {% endif %}
+              {% endif %}
+
+
+
+              {% if current_record.state ==  'draft'   %}
+
+              <button class="btn btn-warning mx-1" o  onclick="startConfirmationModal(' اضافة الاسئلة ', ' هل أنت متأكد أنك تريد  اضافة الاسئلة؟ سيتم محو جميع الاسئلة القديمة ان وجدت . ','warning', function() { addQuestions(); })"> اضافة الاسئلة </button>
+
+            {% endif %}
+
+            
+         <a href="/survey/">
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+          <input type="hidden" name="record_id" id="record_id" value="{{current_record.pk}}" disabled>
+
+          <div class="tile-body">
+
+            {% if messages %}
+            <div class="alert alert-info" >
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        
+ 
+
+            <form method="POST" class="form-horizontal  main_survey_form"  enctype="multipart/form-data">
+           
+              {% csrf_token %}
+
+
+   
+
+
+              <input type="hidden" name="last_refresh_time" value="{{ form.last_refresh_time.value|default:'' }}">
+
+              
+              <div class="mb-3">
+                <label>{{ form.name.label }}</label>
+               
+                {{ form.name}}
+            
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.date.label }}</label>
+                {{ form.date }}
+            </div>
+            
+            <div class="mb-3">
+                <label>{{ form.service_provider.label }}</label>
+                {{ form.service_provider }}
+            </div>
+            
+                   <div class="mb-4">
+                <label>{{ form.affiliate.label }}</label>
+                {{ form.affiliate }}
+            </div>
+            
+    
+            <div class="mb-3">
+                <label>يجب إضافة منطقه او مركز ؟ : </label>
+                <input type="checkbox" id="need_center_related" disabled>
+    
+            </div>
+        
+    
+    
+        <div class="mb-3">
+                <label>{{ form.center.label }}</label>
+                {{ form.center }}
+            </div>
+    
+         
+             <div class="related_field_div mt-4 mb-4">
+              <label>     نوع الخدمة الخاصة بالجهة التابعة  :</label>
+               <p class="related_field id_affiliate_entity_type_related" id="id_affiliate_entity_type_related"></p>
+            </div>
+          
+    
+         <div class="mb-3">
+                <label>{{ form.origin_type.label }}</label>
+                {{ form.origin_type }}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.main_activity.label }}</label>
+                {{ form.main_activity }}
+            </div>
+    
+            <div class="related_field_div mt-4 mb-4">
+              <label>     رئيسى / داعم  :</label>
+               <p class="related_field id_activity_type_related" id="id_activity_type_related"></p>
+            </div>
+
+
+    
+            <div class="mb-3">
+                <label>{{ form.activity_type.label }}</label>
+                {{ form.activity_type }}
+            </div>
+    
+    
+        <div class="mb-4">
+                <label>{{ form.activity_item.label }}</label>
+                {{ form.activity_item }}
+            </div>
+    
+    
+                   <div class="mb-4">
+                <label>{{ form.main_survey_sections.label }}</label>
+                {{ form.main_survey_sections }}
+            </div>
+            
+            
+
+
+                   <div class="mb-3">
+                <label>{{ form.supporting_activity_item.label }}</label>
+                {{ form.supporting_activity_item }}
+            </div>
+            
+            <div class="mb-3">
+                <label>{{ form.supporting_main_survey_sections.label }}</label>
+                {{ form.supporting_main_survey_sections }}
+            </div>
+        
+            
+    <br/>
+    
+            <h2  class="mt-4 text-right mb-4" style="color:#0763c6;" >النتائج</h2>
+    
+
+<!-- 
+            <h3 class="mt-5 text-center mb-4" >
+               الدرجة النهائية  :   <span class="full_mark" style="color:#0763c6;" id="full_mark"></span>
+          </h3>
+               
+
+            <h3 class="mt-5 text-center mb-4" >
+              نتيجة الزيارة  :   <span class="visit_result" style="color:#0763c6;" id="visit_result"></span>
+          </h3>
+                -->
+          <h3 class="mt-4 text-center mb-4">
+              النسبة المؤية   :   <span style="color:#0763c6;" class='visit_result_percntage' id="visit_result_percntage"></span>
+          </h3>
+        
+
+
+
+
+
+          
+
+        
+                   
+            <div style="display:none" >
+                questions added: <input type="checkbox" name="questions_added" id="questions_added"disabled />    
+          
+        </div>
+                   
+            <div  style="display:none" >
+                visit result done:   <input type="checkbox" name="visit_result_done" id="visit_result_done"disabled />    
+            </div>
+          
+            
+        
+    
+            <br>
+            {% if messages %}
+            <div class="alert alert-info" >
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        
+
+      
+       <div class="row table_header_With_dotes">
+
+   
+
+  <h2 class="mt-1 mb-4" style="color:#0763c6;">الأسئلة</h2>
+
+  <div class="column-toggle">
+    <div class="toggle-button" onclick="toggleMenu()">&#x22EE;</div>
+    <div class="toggle-menu" id="columnMenu">
+            <label><input type="checkbox"  data-header-show="main_survey_section"  checked>قائمة الاستبيان الرئيسية </label><br>
+            <label><input type="checkbox" data-header-show="sub_survey_section"  checked >قائمة الاستبيان الفرعية </label><br>
+            <label><input type="checkbox" data-header-show="question" checked> السؤال</label><br>
+            <label><input type="checkbox" data-header-show="note" checked> ملحوظات</label><br>
+            <label><input type="checkbox" data-header-show="recommendations" > توصيات</label><br>
+            <label><input type="checkbox" data-header-show="kpi" checked> المؤشر</label><br>
+            <label><input type="checkbox" data-header-show="result" checked> نسبة التحقق </label><br>
+            <label><input type="checkbox" data-header-show="sub_total" > المجموع الجزئى (نسبة التحقق * المؤشر)</label><br>
+            <label><input type="checkbox" data-header-show="attachment" > المرفقات</label><br>
+            <label><input type="checkbox" data-header-show="last_update_by" >آخر تعديل بواسطة</label><br>
+        
+        </div>
+  </div>
+</div>
+
+
+<div class="table-responsive mt-2">
+<table class="table table-hover table-bordered align-middle text-center shadow-sm rounded q_table_s" >
+            
+  {% csrf_token %}
+                <thead class="q_thead">
+                    <tr>
+                        <th data-header-show="main_survey_section">قائمة الاستبيان الرئيسية  </th>
+                        <th   data-header-show="sub_survey_section">قائمة الاستبيان الفرعية </th>
+                        <th  data-header-show="question">السؤال</th>       
+                        <th  data-header-show="note">ملحوظات</th> 
+                        <th  data-header-show="recommendations">توصيات</th> 
+                        <th  data-header-show="kpi">المؤشر</th>
+                         <th data-header-show="result"> نسبة التحقق </th> 
+                        <th  data-header-show="sub_total">المجموع الجزئى (نسبة التحقق * المؤشر)</th>
+                        <th  data-header-show="attachment">المرفقات</th>  
+
+                        <th  data-header-show="last_update_by" >آخر تعديل بواسطة</th>  
+                    </tr>
+                </thead>
+                <tbody>
+               
+                    {% for question in questions %}
+                    <tr>
+                        <td>{{ question.main_survey_section }}</td>
+                        <td>{{ question.sub_survey_section }}</td>
+                        <td>{{ question.question }}</td>
+                
+                        <td>
+
+                          {% if  current_record.state  not in allowed_states %}
+
+
+
+                          <textarea name="notes_{{ question.id }}"   rows="2"    disabled="disabled"  class=>
+                            {% if question.answer_notes and question.answer_notes != 'None' %}
+                            {{ question.answer_notes }}
+                            {% else %}{% endif %}
+                            </textarea>
+                          
+                        
+                        
+                            {% else %}
+
+                            <textarea name="notes_{{ question.id }}"  rows="2"  >
+                              {% if question.answer_notes and question.answer_notes != 'None' %}
+                              {{ question.answer_notes }}
+                              {% else %}{% endif %}
+                              </textarea>
+
+
+                            {% endif %}
+
+
+                          </td>
+                        <td>
+
+                          {% if  current_record.state  not in allowed_states %}
+
+
+                          <textarea name="recommendations_{{ question.id }}"       disabled="disabled"  rows="2" >
+                            {% if question.answer_recommendations and question.answer_recommendations != 'None' %}
+                            {{ question.answer_recommendations }}
+                            {% else %}{% endif %}
+                            </textarea>
+                        
+                        
+                            {% else %}
+
+                            <textarea name="recommendations_{{ question.id }}" rows="2">
+                              {% if question.answer_recommendations and question.answer_recommendations != 'None' %}
+                              {{ question.answer_recommendations }}
+                              {% else %}{% endif %}
+                              </textarea>
+
+
+
+
+
+                            {% endif %}
+
+
+                          </td>
+                
+                        <td>{{ question.kpi }} 
+                        </td>
+   
+                        <td>
+                          {% if current_record.state not in allowed_states %}
+                            <select id="percentage_selections" name="percentage_{{ question.id }}" disabled>
+
+                              {% else %}
+                              <select  t-val="{{question.answer_percentage}}" id="percentage_selections" name="percentage_{{ question.id }}">
+
+                                
+                                
+                              {% endif %}
+
+
+                              <option value="NA" {% if question.answer_percentage is None %}selected{% endif %}>N/A</option>
+
+
+                              <option value="0.00000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.00000000000000000000" %}selected{% endif %}>0%</option>
+                              <option value="0.10000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.10000000000000000000" %}selected{% endif %}>10%</option>
+                              <option value="0.20000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.20000000000000000000" %}selected{% endif %}>20%</option>
+                              <option value="0.30000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.30000000000000000000" %}selected{% endif %}>30%</option>
+                              <option value="0.40000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.40000000000000000000" %}selected{% endif %}>40%</option>
+                              <option value="0.50000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.50000000000000000000" %}selected{% endif %}>50%</option>
+                              <option value="0.60000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.60000000000000000000" %}selected{% endif %}>60%</option>
+                              <option value="0.70000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.70000000000000000000" %}selected{% endif %}>70%</option>
+                              <option value="0.80000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.80000000000000000000" %}selected{% endif %}>80%</option>
+                              <option value="0.90000000000000000000" {% if question.answer_percentage|floatformat:20 == "0.90000000000000000000" %}selected{% endif %}>90%</option>
+                              <option value="1.00000000000000000000" {% if question.answer_percentage|floatformat:20 == "1.00000000000000000000" %}selected{% endif %}>100%</option>
+                            </select>
+                      
+                          
+                            
+                        </td>
+                        
+                        <td>{{ question.kpi_sub_total }}</td>
+
+                       
+                      
+ <!-- attachments  -->
+
+ <td>
+  {% if current_record.state in allowed_states %}
+    <div class="mb-3">
+      <input type="file"  name="attachments_{{ question.id }}" accept="image/*, .pdf, .docx, .xlsx" multiple>
+    </div>
+    
+
+
+    
+  {% endif %}
+
+  <!-- Display Existing Attachments -->
+  <div class="list-group mt-3 attachments_div_parent">
+    {% if question.prefetched_attachments %}
+      <!-- Toggle Arrow -->
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="btn btn-info btn-md" id="openWizardBtn-{{ question.id }}" data-question-id="{{ question.id }}" data-question-title="{{ question.title }}" >
+          <i class="bi bi-eye"></i> عرض المرفقات
+        </div>
+      </div>
+
+      <div id="attachments-list-{{ question.id }}" class="attachments-list" style="display: none;">
+        {% for file in question.prefetched_attachments %}
+        
+          
+
+
+        <div class="attachments_div list-group-item d-flex flex-column flex-md-row justify-content-between align-items-center p-3" data-attachment-id="{{ file.id }}"   data-file-exists="{{ file.file_exists }}"  data-allowed-state="{{ is_allowed_state }}"     >
+          <div class="text-end mb-2 mb-md-0">
+
+
+
+            
+            <small>
+                <strong>اسم الملف : </strong>
+                <span class="file_name">{{ file.file.name }}</span>
+                <br/>
+                <strong> الحجم :</strong>
+                <span class="file_size">
+                  {% if file.file_exists %}
+                        {{ file.file.size|filesizeformat }}
+                    {% else %}
+                        <span class="text-danger" style="color:red;">الملف غير موجود على الخادم</span>
+                    {% endif %}
+                </span>
+            </small>
+        </div>
+    
+        <!-- Left Side: Buttons and Form -->
+        <div class="d-flex align-items-center gap-3">
+            <!-- Download Button -->
+            {% if  file.file_exists %}
+                <a href="{{ file.file.url }}" download class="btn download_attchment_btn btn-lg">
+                    <i class="fa fa-download"></i> تنزيل
+                </a>
+            {% else %}
+            
+                <button class="btn download_attchment_btn btn-lg" disabled>
+                    <i class="fa fa-download"></i> تنزيل
+                </button>
+            {% endif %}
+    
+       
+         
+          
+        </div>
+        </div>
+    
+
+
+
+
+
+
+
+
+
+     
+    {% endfor %}
+      </div>
+      {%  else%}
+      No attachments
+    {% endif %}
+
+  </div>
+
+
+
+
+
+  
+</td>
+
+
+
+ <!--end attachments  -->
+
+
+ <td>{{ question.last_updated_by|default:"-" }}</td>
+
+             
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        
+</div>
+            <ul>
+              {% for error in form.non_field_errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          </ul>
+
+          {% if current_record.state ==  'draft' or current_record.state == "in_progress"  %}
+ 
+          
+            <br/>
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+            <br />
+
+            <button
+              id="deleteButton"
+    
+              class="btn btn-danger delete-btn"
+              data-href="{% url 'survey-delete' current_record.id %}"
+               data-record-name="{{ current_record.name }}"
+            >
+            حذف
+            </button>
+{% endif %}
+            </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Attach event listener to the "View Attachments" button for each question
+        document.querySelectorAll('[id^="openWizardBtn-"]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            var questionId = this.getAttribute('data-question-id');
+            var questionTitle = this.getAttribute('data-question-title');
+            var attachmentsList = document.getElementById('attachments-list-' + questionId);
+            var modalBody = document.getElementById('attachmentsModalBody');
+    
+            // Clear the modal content
+            modalBody.innerHTML = '';
+    
+            // Add the attachments to the modal
+            if (attachmentsList) {
+              attachmentsList.querySelectorAll('.attachments_div').forEach(function (fileDiv) {
+                var fileName = fileDiv.querySelector('.file_name')?.innerText.replace(/^attachments\//, '') || '';
+                var fileSize = fileDiv.querySelector('.file_size')?.innerText || '';
+                var fileExists = fileDiv.getAttribute('data-file-exists') === 'True'; 
+
+                var is_allowed_state = fileDiv.getAttribute('data-allowed-state') === 'True'; 
+               
+                var fileUrl = fileDiv.querySelector('a') ? fileDiv.querySelector('a').getAttribute('href') : '';
+
+           
+                  var csrfToken = document.querySelector('[name="csrfmiddlewaretoken"]')?.value || '';
+                  var attachmentId = fileDiv.getAttribute('data-attachment-id');  // Make sure to add this in your HTML
+                  if (attachmentId) {
+                      deleteForm = `
+                          <form method="POST" action="/delete_attchment_file/${attachmentId}/" style="display:inline; margin-right:15px; padding:10px;">
+                              <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
+                              <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('هل أنت متأكد أنك تريد حذف هذا الملف؟');">
+                                  <i class="bi bi-trash"></i> حذف
+                              </button>
+                          </form>
+                      `;
+                  } else {
+                      deleteForm = ''; // fallback if ID not available
+                  }
+              
+
+
+                var modalContent = `
+                  <div class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-center p-3">
+                    <div class="text-end mb-2 mb-md-0">
+                      <strong>اسم الملف:</strong> ${fileName}<br/>
+                      <strong>الحجم:</strong>       ${!fileExists ? `<span style="color: red; font-weight: bold;">غير موجود في الخادم</span>` : ''}
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      ${fileExists ? `<a href="${fileUrl}" download class="btn btn-lg btn-primary"><i class="bi bi-download"></i> تنزيل</a>` : ''}
+
+                       
+
+          ${is_allowed_state ?deleteForm : ''}
+
+                   
+                    </div>
+                  </div>
+                `;
+                modalBody.innerHTML += modalContent;
+              });
+            }
+    
+            // Show the modal
+            var modal = new bootstrap.Modal(document.getElementById('attachmentsModal'));
+            modal.show();
+          });
+        });
+      });
+    </script>
+    
+    
+
+
+<script>
+  document.querySelector(".main_survey_form").addEventListener("submit", function(event) {
+    // Get all file input elements inside the form
+    var fileInputs = document.querySelectorAll('input[type="file"]');
+
+    // Define allowed file types and max size (5MB)
+    var allowedExtensions = ['.jpg', '.jpeg', '.png', '.pdf', '.docx', '.xlsx', '.txt'];
+    var maxSize = 5 * 1024 * 1024;  // 5MB
+
+    for (var j = 0; j < fileInputs.length; j++) {
+        var fileInput = fileInputs[j];
+        var files = fileInput.files;
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+
+            // Check file extension
+            var fileExtension = file.name.split('.').pop().toLowerCase();
+            if (!allowedExtensions.includes('.' + fileExtension)) {
+                alert("File type '" + file.name + "' is not allowed. Allowed types: " + allowedExtensions.join(', '));
+                event.preventDefault();  // Prevent form submission
+                return;
+            }
+
+            // Check file size
+            // if (file.size > maxSize) {
+              //  alert("The file '" + file.name + "' exceeds the size limit of 5 MB.");
+               // event.preventDefault();  // Prevent form submission
+            //    return;
+         //   }
+   //end Check file size
+        }
+
+
+    }
+});
+
+  
+</script>
+
+
+
+
+
+
+<script>
+  const checkboxes = document.querySelectorAll('#columnMenu input[type="checkbox"]');
+  const table = document.querySelector('.q_table_s');
+
+  function getColumnIndexByHeader(headerKey) {
+    const ths = table.querySelectorAll('thead th');
+    for (let i = 0; i < ths.length; i++) {
+      if (ths[i].dataset.headerShow === headerKey) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  // Apply initial visibility on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    checkboxes.forEach(checkbox => {
+      const headerKey = checkbox.dataset.headerShow;
+      const colIndex = getColumnIndexByHeader(headerKey);
+      const display = checkbox.checked ? '' : 'none';
+
+      if (colIndex === -1) return;
+
+      table.querySelectorAll('thead th')[colIndex].style.display = display;
+      table.querySelectorAll('tbody tr').forEach(row => {
+        if (row.cells[colIndex]) {
+          row.cells[colIndex].style.display = display;
+        }
+      });
+    });
+  });
+
+  // Handle changes
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const headerKey = checkbox.dataset.headerShow;
+      const colIndex = getColumnIndexByHeader(headerKey);
+      const display = checkbox.checked ? '' : 'none';
+
+      if (colIndex === -1) return;
+
+      table.querySelectorAll('thead th')[colIndex].style.display = display;
+      table.querySelectorAll('tbody tr').forEach(row => {
+        if (row.cells[colIndex]) {
+          row.cells[colIndex].style.display = display;
+        }
+      });
+    });
+  });
+
+  
+
+  function toggleMenu() {
+    const menu = document.getElementById('columnMenu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+
+
+
+
+
+    // Close menu on outside click
+    document.addEventListener('click', function(event) {
+      const toggle = document.querySelector('.column-toggle');
+      const menu = document.getElementById('columnMenu');
+  
+      if (!toggle.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+<!-- getters -->
+<script src="{% static 'custom/js/getters/affiliate.need_center.js' %}"></script>
+<script src="{% static 'custom/js/getters/survey_getters/affiliate.entity_type.js' %}"></script>
+<script src="{% static 'custom/js/getters/survey_getters/get_survey_res.js' %}"></script>
+<script src="{% static 'custom/js/getters/main_activity.activity_type.js' %}"></script>
+ 
+
+<!-- domains -->
+<script src="{% static 'custom/js/domains/survey_domins/affiliate_service_provider.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/entity_type_origin_type.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/activity_type_origin_type_main_activity.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/survey_activity_item_domain.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/main_survey_sections_domain.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/supporting_activity_item_domin.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/survey_supporting_main_survey_sections.js' %}"></script>
+
+
+
+<!-- invisibe requerd -->
+<script src="{% static 'custom/js/survey_invisible_requierd.js' %}"></script>
+
+
+
+
+  </body>
+</html>

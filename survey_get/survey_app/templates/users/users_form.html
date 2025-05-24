@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>{{current_record.get_full_name}} </title>
+    <meta name="description" content="{{current_record.get_full_name}}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+      <!-- start  content here -->
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title"> {{current_record.get_full_name}} </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+              <a href="/users/">
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+
+
+          <div class="tile-body">
+            <form method="POST" class="form-horizontal" >
+           
+              {% csrf_token %}
+              {% csrf_token %} {{ form.as_p }}
+        
+
+        
+            <br/>
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+            <br />
+
+            <button
+              id="deleteButton"
+    
+              class="btn btn-danger delete-btn"
+              data-href="{% url 'users-delete' current_record.id %}"
+               data-record-name="{{ current_record.get_full_name }}"
+            >
+            حذف
+            </button>
+
+            </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+
+ 
+
+
+
+  </body>
+</html>

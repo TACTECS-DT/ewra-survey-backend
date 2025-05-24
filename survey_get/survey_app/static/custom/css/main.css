@@ -1,0 +1,76 @@
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+.pagination a {
+    padding: 8px 12px;
+    margin: 5px;
+    background-color: #ddd;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.pagination a:hover {
+    background-color: #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* attachmens  */
+
+
+    .attachments-toggle-header {
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        color: #0d6efd;
+        margin-top: 0.5rem;
+    }
+
+    .attachments-toggle-header i {
+        transition: transform 0.3s ease;
+    }
+
+    .attachments-toggle-header.collapsed i {
+        transform: rotate(-90deg);
+    }
+
+    .attachments_div_parent {
+        display: none;
+    }
+
+    .attachments_div_parent.show {
+        display: block;
+    }
+
+    #attachmentsModal form {
+        display: inline;
+      }
+      
+      #attachmentsModal .btn-danger {
+        margin-left: 0.5rem;
+      }
+
+
+
+
+      .q_thead {
+        white-space: nowrap;        /* Prevent wrapping */
+        width: fit-content;         /* Shrinks to content */
+        padding: 4px 8px;           /* Optional: reduce padding */
+      }
+
+   

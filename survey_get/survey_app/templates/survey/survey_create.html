@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>جديد</title>
+    <meta name="description" content="جديد" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      <!-- content  -->
+
+      <div class="col-md-12">
+        <div class="tile">
+
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title">جديد</h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+              <a href="/survey/">
+              <button class="btn btn-primary" style="padding-left: 2px;">العودة &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+
+
+          <div class="tile-body">
+
+            <div class="container">
+              {% if messages %}
+              <div class="alert alert-danger" style="color:white; background:red;">
+                <ul>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            <form method="POST">
+              {% csrf_token %}
+              
+
+              <div class="mb-3">
+                <label>{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.date.label }}</label>
+                {{ form.date }}
+            </div class="mb-3">
+            
+            <div class="mb-3">
+                <label>{{ form.service_provider.label }}</label>
+                {{ form.service_provider }}
+            </div>
+            
+                   <div class="mb-3">
+                <label>{{ form.affiliate.label }}</label>
+                {{ form.affiliate }}
+            </div>
+
+            <div class="related_field_div mb-3">            
+    <br>
+                <label>يجب إضافة منطقه او مركز ؟ : </label>
+                <input type="checkbox" id="need_center_related" disabled>
+    
+            </div>
+           
+            <div class="mb-3">
+              <label>{{ form.center.label }}</label>
+              {{ form.center }}
+          </div>
+    
+
+    
+             <div class="related_field_div mt-4 mb-4">
+              <label>  نوع الخدمة الخاصة بالجهة التابعة  :</label>
+               <p class="related_field id_affiliate_entity_type_related" id="id_affiliate_entity_type_related"></p>
+            </div>
+ 
+
+          
+    
+    
+         <div class="mb-3">
+                <label>{{ form.origin_type.label }}</label>
+                {{ form.origin_type }}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label>{{ form.main_activity.label }}</label>
+                {{ form.main_activity }}
+            </div>
+    
+            <div class="related_field_div mt-4 mb-4">
+              <label>  رئيسى / داعم  :</label>
+               <p class="related_field id_activity_type_related" id="id_activity_type_related"></p>
+            </div>
+
+
+    
+            <div class="mb-3">
+                <label>{{ form.activity_type.label }}</label>
+                {{ form.activity_type }}
+            </div>
+    
+    
+        <div  class="mb-3">
+                <label>{{ form.activity_item.label }}</label>
+                {{ form.activity_item }}
+            </div>
+    
+    
+                   <div class="mb-3">
+                <label>{{ form.main_survey_sections.label }}</label>
+                {{ form.main_survey_sections }}
+            </div>
+            
+            
+
+                   <div class="mb-3">
+                <label>{{ form.supporting_activity_item.label }}</label>
+                {{ form.supporting_activity_item }}
+            </div>
+            
+            <div class="mb-3">
+                <label>{{ form.supporting_main_survey_sections.label }}</label>
+                {{ form.supporting_main_survey_sections }}
+            </div>
+        
+            
+         
+
+<br/>
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--end content  -->
+    {% include 'utils/footer_files.html' %}
+
+
+<!-- getters -->
+<script src="{% static 'custom/js/getters/affiliate.need_center.js' %}"></script>
+<script src="{% static 'custom/js/getters/survey_getters/affiliate.entity_type.js' %}"></script>
+<script src="{% static 'custom/js/getters/main_activity.activity_type.js' %}"></script>
+ 
+
+<!-- domains -->
+<script src="{% static 'custom/js/domains/survey_domins/affiliate_service_provider.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/entity_type_origin_type.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/activity_type_origin_type_main_activity.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/survey_activity_item_domain.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/main_survey_sections_domain.js' %}"></script>
+
+<script src="{% static 'custom/js/domains/survey_domins/supporting_activity_item_domin.js' %}"></script>
+<script src="{% static 'custom/js/domains/survey_domins/survey_supporting_main_survey_sections.js' %}"></script>
+
+
+<!-- invisibe requerd -->
+<script src="{% static 'custom/js/survey_invisible_requierd.js' %}"></script>
+
+  </body>
+</html>

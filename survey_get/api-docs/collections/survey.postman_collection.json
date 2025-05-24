@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "aaf96490-8f63-46a5-a46e-b285cd68b75a",
+		"name": "survey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-aaf96490-8f63-46a5-a46e-b285cd68b75a?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/survey/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"survey",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/survey/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"survey",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 29 Apr 2025 16:19:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "4636a065ce614859a250a66e67b38579"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=71.32819999242201;desc=\"Elapsed time\", SQLPanel_sql_time;dur=31.04950000124518;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1449"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=lcaul2zgl5el5ksb2d44agian5gzkjuw; expires=Fri, 02 May 2025 16:19:17 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"name\": \"&amp;amp;amp;amp;amp;amp;lt;script&amp;amp;amp;amp;amp;amp;gt;alert(555)&amp;amp;amp;amp;amp;amp;lt;/script&amp;amp;amp;amp;amp;amp;gt;\",\n            \"date\": \"2025-05-03T02:02:00+03:00\",\n            \"last_updated\": \"2025-04-26T18:52:55.998154+03:00\",\n            \"service_provider\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"affiliate\": {\n                \"id\": 2,\n                \"name\": \"Affiliate 2\"\n            },\n            \"center\": null,\n            \"origin_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"state\": {\n                \"key\": \"confirmed\",\n                \"value\": \"تم التأكيد\"\n            },\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"activity_type\": {\n                \"id\": 1,\n                \"name\": \"2 activity-type\"\n            },\n            \"activity_item\": {\n                \"id\": 1,\n                \"name\": \"new\"\n            },\n            \"supporting_activity_item\": null,\n            \"full_mark\": \"0.6000\",\n            \"visit_result\": \"0.5400\",\n            \"visit_result_percntage\": \"0.9000\",\n            \"questions_added\": true,\n            \"visit_result_done\": true\n        },\n        {\n            \"id\": 6,\n            \"name\": \"new name\",\n            \"date\": \"2025-04-05T00:00:00+02:00\",\n            \"last_updated\": \"2025-04-29T19:18:39.353242+03:00\",\n            \"service_provider\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"affiliate\": {\n                \"id\": 2,\n                \"name\": \"Affiliate 2\"\n            },\n            \"center\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"origin_type\": {\n                \"key\": \"water\",\n                \"value\": \"مياه شرب\"\n            },\n            \"state\": {\n                \"key\": \"draft\",\n                \"value\": \"مسودة\"\n            },\n            \"main_activity\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"activity_type\": {\n                \"id\": 2,\n                \"name\": \"new name\"\n            },\n            \"activity_item\": {\n                \"id\": 23,\n                \"name\": \"demo name\"\n            },\n            \"supporting_activity_item\": {\n                \"id\": 23,\n                \"name\": \"demo name\"\n            },\n            \"full_mark\": \"0.0000\",\n            \"visit_result\": \"0.0000\",\n            \"visit_result_percntage\": \"0.0000\",\n            \"questions_added\": false,\n            \"visit_result_done\": false\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/survey/1/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"survey",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/survey/1/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"survey",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 29 Apr 2025 16:19:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "55bc206592314f0ebc08e3bd9baeb43c"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=33.08850000030361;desc=\"Elapsed time\", SQLPanel_sql_time;dur=20.61120000144001;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "744"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=lcaul2zgl5el5ksb2d44agian5gzkjuw; expires=Fri, 02 May 2025 16:19:06 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"&amp;amp;amp;amp;amp;amp;lt;script&amp;amp;amp;amp;amp;amp;gt;alert(555)&amp;amp;amp;amp;amp;amp;lt;/script&amp;amp;amp;amp;amp;amp;gt;\",\n    \"date\": \"2025-05-03T02:02:00+03:00\",\n    \"last_updated\": \"2025-04-26T18:52:55.998154+03:00\",\n    \"service_provider\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    },\n    \"center\": null,\n    \"origin_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"state\": {\n        \"key\": \"confirmed\",\n        \"value\": \"تم التأكيد\"\n    },\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"activity_type\": {\n        \"id\": 1,\n        \"name\": \"2 activity-type\"\n    },\n    \"activity_item\": {\n        \"id\": 1,\n        \"name\": \"new\"\n    },\n    \"supporting_activity_item\": null,\n    \"full_mark\": \"0.6000\",\n    \"visit_result\": \"0.5400\",\n    \"visit_result_percntage\": \"0.9000\",\n    \"questions_added\": true,\n    \"visit_result_done\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new name ",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2025-04-05",
+							"description": " Use ISO 8601",
+							"type": "text"
+						},
+						{
+							"key": "service_provider",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "center",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "origin_type",
+							"value": "water",
+							"type": "text"
+						},
+						{
+							"key": "main_activity",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_item",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "supporting_activity_item",
+							"value": "23",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/survey/6/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"survey",
+						"6",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view patch",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name ",
+									"value": "new name ",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-04-05",
+									"description": " Use ISO 8601",
+									"type": "text"
+								},
+								{
+									"key": "service_provider",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "center",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "origin_type",
+									"value": "water",
+									"type": "text"
+								},
+								{
+									"key": "main_activity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_item",
+									"value": "23",
+									"type": "text"
+								},
+								{
+									"key": "supporting_activity_item",
+									"value": "23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/survey/6/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"survey",
+								"6",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 29 Apr 2025 16:18:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "c3d6c5a0eaf2488985ee9425035f2678"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=61.342799992416985;desc=\"Elapsed time\", SQLPanel_sql_time;dur=25.072199990972877;desc=\"SQL 11 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "652"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=lcaul2zgl5el5ksb2d44agian5gzkjuw; expires=Fri, 02 May 2025 16:18:39 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"new name\",\n    \"date\": \"2025-04-05T00:00:00+02:00\",\n    \"last_updated\": \"2025-04-29T19:18:39.353242+03:00\",\n    \"service_provider\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    },\n    \"center\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"origin_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"state\": {\n        \"key\": \"draft\",\n        \"value\": \"مسودة\"\n    },\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"activity_type\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"activity_item\": {\n        \"id\": 23,\n        \"name\": \"demo name\"\n    },\n    \"supporting_activity_item\": {\n        \"id\": 23,\n        \"name\": \"demo name\"\n    },\n    \"full_mark\": \"0.0000\",\n    \"visit_result\": \"0.0000\",\n    \"visit_result_percntage\": \"0.0000\",\n    \"questions_added\": false,\n    \"visit_result_done\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new record 527",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2025-04-05",
+							"description": " Use ISO 8601",
+							"type": "text"
+						},
+						{
+							"key": "service_provider",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "affiliate",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "center",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "origin_type",
+							"value": "water",
+							"type": "text"
+						},
+						{
+							"key": "main_activity",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "activity_item",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "supporting_activity_item",
+							"value": "23",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/survey/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"survey",
+						"new",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view patch Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name ",
+									"value": "new record 527",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-04-05",
+									"description": " Use ISO 8601",
+									"type": "text"
+								},
+								{
+									"key": "service_provider",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "affiliate",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "center",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "origin_type",
+									"value": "water",
+									"type": "text"
+								},
+								{
+									"key": "main_activity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "activity_item",
+									"value": "23",
+									"type": "text"
+								},
+								{
+									"key": "supporting_activity_item",
+									"value": "23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/survey/new/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"survey",
+								"new",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 29 Apr 2025 16:17:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "a6a386feb9c84a398caf180bd435b956"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=49.31180000130553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=16.80359999591019;desc=\"SQL 10 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "658"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=lcaul2zgl5el5ksb2d44agian5gzkjuw; expires=Fri, 02 May 2025 16:17:57 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"new record 527\",\n    \"date\": \"2025-04-05T00:00:00+02:00\",\n    \"last_updated\": \"2025-04-29T19:17:57.184442+03:00\",\n    \"service_provider\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"affiliate\": {\n        \"id\": 2,\n        \"name\": \"Affiliate 2\"\n    },\n    \"center\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"origin_type\": {\n        \"key\": \"water\",\n        \"value\": \"مياه شرب\"\n    },\n    \"state\": {\n        \"key\": \"draft\",\n        \"value\": \"مسودة\"\n    },\n    \"main_activity\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"activity_type\": {\n        \"id\": 2,\n        \"name\": \"new name\"\n    },\n    \"activity_item\": {\n        \"id\": 23,\n        \"name\": \"demo name\"\n    },\n    \"supporting_activity_item\": {\n        \"id\": 23,\n        \"name\": \"demo name\"\n    },\n    \"full_mark\": \"0.0000\",\n    \"visit_result\": \"0.0000\",\n    \"visit_result_percntage\": \"0.0000\",\n    \"questions_added\": false,\n    \"visit_result_done\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "aLMl1xbEgCVwtn3sYs2VPYi2rWSHF0Tn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/survey/delete/?ids=1,2",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"survey",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

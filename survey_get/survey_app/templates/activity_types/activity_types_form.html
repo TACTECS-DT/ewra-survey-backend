@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>{{current_record.name}} </title>
+    <meta name="description" content="{{current_record.name}}" />
+
+    {% include 'utils/header_files.html' %}
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+      <!-- start  content here -->
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title"> {{current_record.name}} </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+              <a href="/activity-types/">
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          
+
+
+
+          <div class="tile-body">
+            <form method="POST" class="form-horizontal" >
+           
+              {% csrf_token %}
+              
+              
+  
+              <div>
+                <label>{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+            
+            <div>
+                <label>{{ form.entity_type.label }}</label>
+                {{ form.entity_type }}
+            </div>
+            
+            <div>
+                <label>{{ form.main_activity.label }}</label>
+                {{ form.main_activity }}
+            </div>
+        
+  
+            <div class="id_activity_type_related mt-4 mb-4">
+              <label> رئيسى / داعم  :</label>
+               <p class="related_field id_activity_type_related" id="id_activity_type_related"></p>
+            </div>
+        
+
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>حفظ
+              </button>
+            </form>
+            <br />
+
+            <button
+              id="deleteButton"
+    
+              class="btn btn-danger delete-btn"
+              data-href="{% url 'activity-types-delete' current_record.id %}"
+               data-record-name="{{ current_record.name }}"
+            >
+            حذف
+            </button>
+
+            </div>
+        </div>
+      </div>
+
+      <!--end content  -->
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="{% static 'custom/js/delete.js' %}"></script>
+
+ 
+    
+
+<!-- getters -->
+<script src="{% static 'custom/js/getters/main_activity.activity_type.js' %}"></script>
+ 
+<!-- domains -->
+<script src="{% static 'custom/js/domains/entity_type_domain.js' %}"></script>
+
+
+
+
+  </body>
+</html>

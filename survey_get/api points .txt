@@ -1,0 +1,117 @@
+all apis is JWT based
+admin panal is Session Based 
+
+GWT part :
+
+We use GWT for all end points .
+
+
+Detailed Cycle Flow:
+1. Login (Initial Authentication)
+
+    User Action: User provides their credentials (e.g., username and password).
+
+    Server Action:
+
+        Authenticate the user.
+
+        Generate access token (short-lived).
+
+        Generate refresh token (long-lived).
+
+        Send both tokens to the client.
+
+2. API Request with Access Token
+
+    User Action: User makes an API request (e.g., fetching user data).
+
+    Client Action:
+
+        The client sends the access token in the Authorization header.
+
+        Example: Authorization: Bearer <access_token>
+
+    Server Action:
+
+        The server verifies the access token.
+
+        If valid, the request is processed, and the response is sent back.
+
+        If expired, the server sends a 401 Unauthorized response with an error.
+
+3. Access Token Expiration
+
+    User Action: User continues to use the application.
+
+    Client Action:
+
+        The client detects the expired access token based on the 401 error or by checking the token’s expiration time.
+
+        The client will use the refresh token to get a new access token.
+
+    Server Action:
+
+        The client sends the refresh token to the server.
+
+        If the refresh token is valid, the server generates a new access token and sends it to the client.
+
+        Optionally, the server can send a new refresh token as well.
+
+4. Refresh Token Expiry or Invalidity
+
+    User Action: If the refresh token has expired or is invalid (e.g., it was revoked), the user needs to log in again.
+
+    Client Action:
+
+        The client prompts the user to log in again.
+
+        The client clears the expired tokens from storage (e.g., localStorage, cookies).
+
+        The user re-enters their credentials.
+
+    Server Action:
+
+        The server authenticates the user and issues new access and refresh tokens.
+
+5. Logout
+
+    User Action: User clicks "Logout."
+
+    Client Action:
+
+        The client clears both access token and refresh token from storage.
+
+        Redirect to login page.
+
+    Server Action:
+
+        Optionally, the server can invalidate the refresh token (e.g., mark it as revoked in the database) to ensure that it cannot be used to obtain new tokens after the user logs out.
+
+
+///////////////////
+
+
+
+login points :
+    GET then POST 
+    /login/  : for sessions based auth for django admin and internal sys 
+
+    POST
+    /api/token/ # to get refesh and access tokens : for api login  :
+    thi will  return :
+    like : 
+    {
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NTc1NDIxNywiaWF0IjoxNzQ1NjY3ODE3LCJqdGkiOiIxOTVkODlhOGQ5ZTI0ZGQxODAxYjI5YTc5OWE0ZTkzNyIsInVzZXJfaWQiOjF9.Xbc-JwGqIjX4FcQMAwCLBjlWBeCNdSZPp-qdY9iLlyM",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NjY4MTE3LCJpYXQiOjE3NDU2Njc4MTcsImp0aSI6ImJlZTNjZjdkMGRkZjRiMGU4NmRlZWM0MGFkOTQwNTU5IiwidXNlcl9pZCI6MX0.92Sd7n9GZGUVoFUTOAKwpNjXxerIi3itgs5fV56d7gs"
+    }
+
+    post with refresh  in body
+
+    api/token/refresh/ # 
+    if refresh is still valid  and correct will return {
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1Njc0MTIwLCJpYXQiOjE3NDU2NzM2NDgsImp0aSI6IjRlMDA5OGUxNTdiNTRjNzlhY2YxM2I3Yzk1ODI2YTIxIiwidXNlcl9pZCI6MX0.UqyE4A2EnY0p4wLnHYDRyD3fQJUxy5_LDZOCnT2CBBM"
+}
+then tack the access and make the requests usnig it 
+
+logout with jwt :
+cann make from clint side by removing cookies that related iw jwt and from server by override same cookies with empty jwt info and redirect to login 

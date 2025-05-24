@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "84f255cc-c59d-400f-9435-1a05f1e24143",
+		"name": "question-bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44330256",
+		"_collection_link": "https://omar-8166699.postman.co/workspace/omar's-Workspace~6a126939-f7f2-424c-8751-e56b48978abe/collection/44330256-84f255cc-c59d-400f-9435-1a05f1e24143?action=share&source=collection_link&creator=44330256"
+	},
+	"item": [
+		{
+			"name": "list view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/question-bank/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"question-bank",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/question-bank/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"question-bank",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 15:24:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "1323c36db7ac486e92dcb3528f679a93"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=39.1961999994237;desc=\"Elapsed time\", SQLPanel_sql_time;dur=10.23170000189566;desc=\"SQL 5 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "469"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 15:24:32 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"name\": \"&amp;amp;amp;lt;script&amp;amp;amp;gt;alert(555)&amp;amp;amp;lt;/script&amp;amp;amp;gt;\",\n            \"sub_survey_sections\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"new  sub name\"\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"new sub record 4\"\n                }\n            ],\n            \"kpi_tags\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"sub 2\"\n                }\n            ],\n            \"kpi\": \"0.2000\",\n            \"is_active\": true\n        },\n        {\n            \"id\": 2,\n            \"name\": \"new name\",\n            \"sub_survey_sections\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"sub 2\"\n                }\n            ],\n            \"kpi_tags\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"new  sub name\"\n                }\n            ],\n            \"kpi\": \"0.2000\",\n            \"is_active\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "form view get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/question-bank/1/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"question-bank",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form view get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-csrftoken",
+								"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/question-bank/1/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"question-bank",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 15:25:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, GET"
+						},
+						{
+							"key": "djdt-store-id",
+							"value": "a9d2e3e9d4ce4005aa03820f0cdcae73"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "TimerPanel_utime;dur=0;desc=\"User CPU time\", TimerPanel_stime;dur=0;desc=\"System CPU time\", TimerPanel_total;dur=0;desc=\"Total CPU time\", TimerPanel_total_time;dur=24.151900001015747;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.152000005997252;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "248"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=u5i0idl3y5puyequkd6o2bvl8q0fakro; expires=Thu, 01 May 2025 15:25:55 GMT; HttpOnly; Max-Age=259200; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Q 1\",\n    \"sub_survey_sections\": [\n        {\n            \"id\": 2,\n            \"name\": \"new  sub name\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"new sub record 4\"\n        }\n    ],\n    \"kpi_tags\": [\n        {\n            \"id\": 1,\n            \"name\": \"sub 2\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"new  sub name\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"new sub record 4\"\n        }\n    ],\n    \"kpi\": \"0.2000\",\n    \"is_active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "form view patch",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "new  Q name ",
+							"type": "text"
+						},
+						{
+							"key": "kpi",
+							"value": "0.003",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "kpi_tags",
+							"value": "[3,4]",
+							"type": "text"
+						},
+						{
+							"key": "sub_survey_sections",
+							"value": "[4,3]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/question-bank/2/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"question-bank",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new record 4",
+							"type": "text"
+						},
+						{
+							"key": "kpi",
+							"value": "0.005",
+							"description": "0-1",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "kpi_tags",
+							"value": "[1,2,3]",
+							"type": "text"
+						},
+						{
+							"key": "sub_survey_sections",
+							"value": "[1,2]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/question-bank/new/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"question-bank",
+						"new",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-csrftoken",
+						"value": "HWf5gWd0WEg0ETFo6kpAOiJDsYpoyrY3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/api/question-bank/delete/?ids=1,2",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"question-bank",
+						"delete",
+						""
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

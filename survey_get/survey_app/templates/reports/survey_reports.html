@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    {% load static %}
+
+    <title>تقارير الاستبيان </title>
+    <meta name="description" content="تقارير الاستبيان" />
+
+    
+    {% include 'utils/header_files.html' %}
+
+
+    <!--
+    old  js lip no style
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script> -->
+   
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    
+    <style>
+      .survey_report_data .card-header {
+          cursor: pointer;
+      }
+  
+      .survey_report_data h5, 
+      .survey_report_data h6 {
+          margin-bottom: 0.25rem;
+      }
+  
+      .survey_report_data .card {
+          border-radius: 10px;
+      }
+  
+      .progress-bar {
+          font-weight: bold;
+      }
+      .custom-progress-bar {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+
+    
+#sub_info{
+  .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f3f4f6;
+  }
+  
+  .report-card {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+  }
+  
+  .report-card h2 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 20px;
+  }
+  
+  .report-card p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+      color: #555;
+  }
+  
+  .report-card .value {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  .report-card .percentage {
+      font-weight: bold;
+      color: #0077cc;
+  }
+  
+}
+  </style>
+  
+  </head>
+  <body class="app sidebar-mini rtl">
+    {% include 'utils/navbar.html' %} {% include 'utils/sidebar.html' %}
+
+    <main class="app-content">
+      {% include 'utils/sub_header.html' %}
+      {% include 'delete_wizard.html' %}
+
+      <!-- start  content here -->
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="row">
+
+            <div class="col-6">
+              <h3 class="tile-title">تقارير الاستبيان </h3>
+
+          </div>
+          
+            <div class="col-6 text-left">
+                <a href="{% url 'reports' %}"> 
+              <button class="btn btn-primary" style="padding-left: 2px;">الرجوع &nbsp;
+                <i class="fa fa-arrow-left"></i></button>
+          </a>
+          </div>
+          
+          </div>
+          <!-- end header -->
+          
+
+
+          <div class="tile-body">
+
+
+            <div class="mb-3">        
+                <label> الاستبيان</label>
+                <select  class="form-control"  id="survey_id">
+                    {% for s in valid_surveys %}
+                    <option value="{{ s.id }}">{{ s.name }}</option>
+        
+                    {% endfor%}
+                  </select>
+                  <br/>
+            </div>
+    
+
+
+
+            <button class="btn btn-primary" id="get_survey_report_data">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>تأكيد
+              </button>
+            <br />
+
+
+            <br/>
+
+            <div  class="survey_report_data">
+
+
+              
+
+            </div>
+
+
+
+
+      <!--end content  -->
+            </div>
+        </div>
+      </div>
+
+    </main>
+
+    {% include 'utils/footer_files.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script  src="{% static 'custom/js/reports/survey_report_data.js' %}"></script>
+
+  </body>
+</html>

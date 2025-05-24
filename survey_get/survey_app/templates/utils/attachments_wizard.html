@@ -1,0 +1,71 @@
+<!-- Attachments Wizard Modal -->
+
+<style>
+    #attachmentsModal .modal-content {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .modal-body {
+        padding: 1.5rem 2rem;
+    }
+
+    .modal-footer .btn {
+        min-width: 100px;
+    }
+
+    .modal-header .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .modal-backdrop {
+        display: none;
+    }
+
+    .btn-close {
+        padding: 0px 11px;
+        background: transparent;
+        border: none;
+    }
+
+    .btn-close:hover {
+        background-color: transparent !important;
+        cursor: pointer;
+    }
+    .modal-dialog {
+        max-width: 60% !important;}
+
+    
+    .modal-content {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      width: 100% !important;
+      max-width: 100% !important; }
+
+.download_attchment_btn{
+   
+}
+</style>
+
+<div class="modal fade" id="attachmentsModal" tabindex="-1" aria-labelledby="attachmentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-dark">
+                <h5 class="modal-title" id="attachmentsModalLabel">عرض المرفقات</h5>
+              
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" > &times;</button>
+            </div>
+            <div class="modal-body" id="attachmentsModalBody">
+                <!-- Attachments will be dynamically loaded here -->
+            </div>
+            <div class="modal-footer">
+      
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="إغلاق">إغلاق </button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
